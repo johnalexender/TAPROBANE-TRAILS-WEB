@@ -1,0 +1,481 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Explore Our Guides | Explore Lanka
+{% endblock %}
+
+
+{% block extra_css %}
+
+<link
+    rel="stylesheet"
+    href="{% static 'website/css/guides.css' %}"
+>
+
+{% endblock %}
+
+
+{% block content %}
+
+<main class="guides-page">
+
+
+    <!-- ==========================================
+         HERO
+    =========================================== -->
+
+    <section class="guides-hero">
+
+        <div class="guides-hero-inner">
+
+            <div class="guides-hero-content">
+
+                <span class="eyebrow">
+                    MEET YOUR LOCAL GUIDE
+                </span>
+
+                <h1>
+                    Travel Sri Lanka
+                    <span>with someone local.</span>
+                </h1>
+
+                <p>
+                    Meet the people who know Sri Lanka beyond
+                    the usual tourist routes. Private drivers,
+                    local guides and friendly travel companions
+                    ready to make your journey personal.
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        href="{% url 'planner' %}"
+                        class="hero-button"
+                    >
+                        Plan My Trip
+                        <span>→</span>
+                    </a>
+
+                    <a
+                        href="#guides"
+                        class="hero-link"
+                    >
+                        Meet the guides
+                        <span>↓</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-side">
+
+                <div class="hero-stat">
+
+                    <strong>
+                        {{ guides|length }}
+                    </strong>
+
+                    <span>
+                        Local Guide{{ guides|length|pluralize }}
+                    </span>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <strong>
+                        01
+                    </strong>
+
+                    <span>
+                        Private Journey
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         INTRO
+    =========================================== -->
+
+    <section class="guides-intro">
+
+        <div class="section-container">
+
+            <div class="intro-label">
+
+                <span>
+                    EXPLORE LANKA
+                </span>
+
+            </div>
+
+
+            <div class="intro-content">
+
+                <h2>
+                    More than a driver.
+                    <br>
+                    <em>Your local connection.</em>
+                </h2>
+
+                <p>
+                    A great journey is not only about the places
+                    you visit. It is about the person who shows
+                    them to you. Our local guides bring local
+                    knowledge, flexibility and a personal touch
+                    to every private journey.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         GUIDES
+    =========================================== -->
+
+    <section
+        class="guides-section"
+        id="guides"
+    >
+
+        <div class="section-container">
+
+
+            <!-- SECTION HEADER -->
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        OUR GUIDES
+                    </span>
+
+                    <h2>
+                        Meet your journey host
+                    </h2>
+
+                </div>
+
+                <p>
+                    Choose a local guide and discover
+                    Sri Lanka your way.
+                </p>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 GUIDE GRID
+            =================================== -->
+
+            {% if guides %}
+
+            <div class="guides-grid">
+
+                {% for guide in guides %}
+
+                <article
+                    class="guide-card
+                    {% if guide.is_featured %}
+                    featured-guide
+                    {% endif %}"
+                >
+
+
+                    <!-- IMAGE -->
+
+                    <div class="guide-image">
+
+                        {% if guide.profile_image %}
+
+                        <img
+                            src="{{ guide.profile_image.url }}"
+                            alt="{{ guide.name }}"
+                        >
+
+                        {% else %}
+
+                        <div class="guide-placeholder">
+
+                            <span>
+                                {{ guide.name|first|upper }}
+                            </span>
+
+                        </div>
+
+                        {% endif %}
+
+
+                        {% if guide.is_featured %}
+
+                        <div class="featured-badge">
+                            FEATURED GUIDE
+                        </div>
+
+                        {% endif %}
+
+
+                        <div class="guide-image-gradient"></div>
+
+
+                        <div class="guide-location">
+
+                            <span>⌖</span>
+
+                            {{ guide.location|default:"Sri Lanka" }}
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CONTENT -->
+
+                    <div class="guide-card-content">
+
+
+                        <div class="guide-heading">
+
+                            <div>
+
+                                <h3>
+                                    {{ guide.name }}
+                                </h3>
+
+                                <span>
+                                    {{ guide.title }}
+                                </span>
+
+                            </div>
+
+                            <div class="guide-number">
+
+                                {% if forloop.counter < 10 %}
+                                    0{{ forloop.counter }}
+                                {% else %}
+                                    {{ forloop.counter }}
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DETAILS -->
+
+                        <div class="guide-details">
+
+
+                            {% if guide.experience %}
+
+                            <div class="guide-detail">
+
+                                <span class="detail-icon">
+                                    ✦
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        EXPERIENCE
+                                    </small>
+
+                                    <strong>
+                                        {{ guide.experience }}
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                            {% endif %}
+
+
+
+                            {% if guide.languages %}
+
+                            <div class="guide-detail">
+
+                                <span class="detail-icon">
+                                    Aa
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        LANGUAGES
+                                    </small>
+
+                                    <strong>
+                                        {{ guide.languages }}
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+
+                        <!-- DESCRIPTION -->
+
+                        <p class="guide-description">
+
+                            {{ guide.description|truncatewords:30 }}
+
+                        </p>
+
+
+
+                        <!-- VEHICLE -->
+
+                        {% if guide.vehicle_image %}
+
+                        <div class="vehicle-preview">
+
+                            <img
+                                src="{{ guide.vehicle_image.url }}"
+                                alt="{{ guide.name }} vehicle"
+                            >
+
+                            <div>
+
+                                <small>
+                                    PRIVATE VEHICLE
+                                </small>
+
+                                <strong>
+                                    Your dedicated travel space
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                        {% endif %}
+
+
+
+                        <!-- BUTTON -->
+
+                        <a
+                            href="{% url 'guide_detail' guide.id %}"
+                            class="guide-button"
+                        >
+
+                            <span>
+                                View Guide
+                            </span>
+
+                            <strong>
+                                →
+                            </strong>
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+                {% endfor %}
+
+            </div>
+
+
+            {% else %}
+
+
+            <!-- EMPTY STATE -->
+
+            <div class="guides-empty">
+
+                <div class="empty-icon">
+                    EL
+                </div>
+
+                <h3>
+                    Our guides are coming soon.
+                </h3>
+
+                <p>
+                    We're preparing our local guide profiles.
+                    Please check back shortly.
+                </p>
+
+                <a href="{% url 'home' %}">
+                    Return Home →
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         BOTTOM CTA
+    =========================================== -->
+
+    <section class="guides-cta">
+
+        <div class="guides-cta-inner">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    READY TO EXPLORE?
+                </span>
+
+                <h2>
+                    Your Sri Lankan journey
+                    starts here.
+                </h2>
+
+            </div>
+
+
+            <a
+                href="{% url 'planner' %}"
+                class="cta-button"
+            >
+                Plan My Private Trip
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,677 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+{{ guide.name }} | Private Driver & Local Guide | Explore Lanka
+{% endblock %}
+
+
+{% block extra_css %}
+
+<link
+    rel="stylesheet"
+    href="{% static 'website/css/guide_detail.css' %}"
+>
+
+{% endblock %}
+
+
+{% block content %}
+
+<main class="guide-detail-page">
+
+
+    <!-- ==================================================
+         BREADCRUMB
+    =================================================== -->
+
+    <div class="guide-breadcrumb-wrap">
+
+        <div class="guide-container">
+
+            <div class="guide-breadcrumb">
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+                <span>/</span>
+
+                <a href="{% url 'guides' %}">
+                    Our Guides
+                </a>
+
+                <span>/</span>
+
+                <strong>
+                    {{ guide.name }}
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         HERO
+    =================================================== -->
+
+    <section class="guide-profile-hero">
+
+        <div class="guide-container">
+
+            <div class="guide-hero-grid">
+
+
+                <!-- ======================================
+                     GUIDE IMAGE
+                ======================================= -->
+
+                <div class="guide-main-photo">
+
+                    {% if guide.profile_image %}
+
+                    <img
+                        src="{{ guide.profile_image.url }}"
+                        alt="{{ guide.name }} - {{ guide.title }}"
+                    >
+
+                    {% else %}
+
+                    <div class="guide-photo-placeholder">
+
+                        <span>
+                            {{ guide.name|first|upper }}
+                        </span>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    {% if guide.is_featured %}
+
+                    <div class="profile-featured">
+                        FEATURED GUIDE
+                    </div>
+
+                    {% endif %}
+
+
+                    <div class="photo-caption">
+
+                        <span>
+                            PRIVATE JOURNEY HOST
+                        </span>
+
+                        <strong>
+                            {{ guide.name }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ======================================
+                     PROFILE INFORMATION
+                ======================================= -->
+
+                <div class="guide-hero-info">
+
+                    <span class="profile-eyebrow">
+                        YOUR LOCAL CONNECTION
+                    </span>
+
+
+                    <h1>
+                        {{ guide.name }}
+                    </h1>
+
+
+                    <h2>
+                        {{ guide.title }}
+                    </h2>
+
+
+                    {% if guide.location %}
+
+                    <div class="profile-location">
+
+                        <span class="location-pin">
+                            ●
+                        </span>
+
+                        {{ guide.location }},
+
+                        <span>
+                            Sri Lanka
+                        </span>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    <div class="profile-description">
+
+                        {{ guide.description|linebreaks }}
+
+                    </div>
+
+
+                    <!-- QUICK FACTS -->
+
+                    <div class="profile-facts">
+
+
+                        {% if guide.experience %}
+
+                        <div class="profile-fact">
+
+                            <div class="fact-icon">
+                                ✦
+                            </div>
+
+                            <div>
+
+                                <small>
+                                    EXPERIENCE
+                                </small>
+
+                                <strong>
+                                    {{ guide.experience }}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                        {% endif %}
+
+
+
+                        {% if guide.languages %}
+
+                        <div class="profile-fact">
+
+                            <div class="fact-icon">
+                                Aa
+                            </div>
+
+                            <div>
+
+                                <small>
+                                    LANGUAGES
+                                </small>
+
+                                <strong>
+                                    {{ guide.languages }}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                        {% endif %}
+
+
+                        {% if guide.location %}
+
+                        <div class="profile-fact">
+
+                            <div class="fact-icon">
+                                ◉
+                            </div>
+
+                            <div>
+
+                                <small>
+                                    BASED IN
+                                </small>
+
+                                <strong>
+                                    {{ guide.location }}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                        {% endif %}
+
+
+                        <div class="profile-fact">
+
+                            <div class="fact-icon">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <small>
+                                    JOURNEY TYPE
+                                </small>
+
+                                <strong>
+                                    Private Travel
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+
+                    <div class="profile-actions">
+
+
+                        <a
+                            href="{% url 'planner' %}?guide={{ guide.id }}"
+                            class="primary-profile-button"
+                        >
+
+                            <span>
+                                Plan a Trip With Me
+                            </span>
+
+                            <strong>
+                                →
+                            </strong>
+
+                        </a>
+
+
+                        {% if guide.whatsapp %}
+
+                        <a
+                            href="https://wa.me/{{ guide.whatsapp }}"
+                            target="_blank"
+                            rel="noopener"
+                            class="whatsapp-profile-button"
+                        >
+
+                            <span class="whatsapp-icon">
+                                WA
+                            </span>
+
+                            Chat on WhatsApp
+
+                        </a>
+
+                        {% endif %}
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         INTRO STRIP
+    =================================================== -->
+
+    <section class="guide-intro-strip">
+
+        <div class="guide-container">
+
+            <div class="intro-strip-grid">
+
+
+                <div>
+
+                    <span>
+                        THE EXPLORE LANKA WAY
+                    </span>
+
+                    <h2>
+                        Travel with a local.
+                        <em>Experience more.</em>
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Your journey should feel personal.
+                    With a private driver and local guide,
+                    you can explore Sri Lanka at your own
+                    pace, discover hidden places and enjoy
+                    the freedom to change your plans along
+                    the way.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         VEHICLE SECTION
+    =================================================== -->
+
+    {% if guide.vehicle_image %}
+
+    <section class="vehicle-section">
+
+        <div class="guide-container">
+
+            <div class="vehicle-grid">
+
+
+                <!-- VEHICLE IMAGE -->
+
+                <div class="vehicle-photo">
+
+                    <img
+                        src="{{ guide.vehicle_image.url }}"
+                        alt="{{ guide.name }} private vehicle"
+                    >
+
+                    <div class="vehicle-photo-label">
+                        YOUR PRIVATE VEHICLE
+                    </div>
+
+                </div>
+
+
+                <!-- VEHICLE CONTENT -->
+
+                <div class="vehicle-content">
+
+                    <span class="profile-eyebrow">
+                        YOUR TRAVEL SPACE
+                    </span>
+
+                    <h2>
+                        Your journey,
+                        <br>
+                        <em>your own vehicle.</em>
+                    </h2>
+
+                    <p>
+                        Enjoy the freedom of travelling in a
+                        private vehicle with your own local
+                        driver. No shared buses, no fixed
+                        group schedules and no unnecessary
+                        stops.
+                    </p>
+
+
+                    <div class="vehicle-features">
+
+                        <div>
+                            <span>✓</span>
+                            Private journey
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Comfortable travel
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Flexible stops
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Local knowledge
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="{% url 'planner' %}?guide={{ guide.id }}"
+                        class="vehicle-button"
+                    >
+                        Choose This Guide
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    {% endif %}
+
+
+
+    <!-- ==================================================
+         WHY TRAVEL WITH GUIDE
+    =================================================== -->
+
+    <section class="guide-benefits">
+
+        <div class="guide-container">
+
+            <div class="benefits-header">
+
+                <span class="profile-eyebrow">
+                    WHY TRAVEL WITH {{ guide.name|upper }}
+                </span>
+
+                <h2>
+                    A different way to
+                    <em>see Sri Lanka.</em>
+                </h2>
+
+            </div>
+
+
+            <div class="benefits-grid">
+
+
+                <div class="benefit-card">
+
+                    <span class="benefit-number">
+                        01
+                    </span>
+
+                    <div class="benefit-icon">
+                        ◉
+                    </div>
+
+                    <h3>
+                        Local Knowledge
+                    </h3>
+
+                    <p>
+                        Discover places, routes and local
+                        experiences beyond the standard
+                        tourist itinerary.
+                    </p>
+
+                </div>
+
+
+
+                <div class="benefit-card">
+
+                    <span class="benefit-number">
+                        02
+                    </span>
+
+                    <div class="benefit-icon">
+                        ↗
+                    </div>
+
+                    <h3>
+                        Your Own Pace
+                    </h3>
+
+                    <p>
+                        Take your time, make spontaneous
+                        stops and adjust your journey as
+                        you travel.
+                    </p>
+
+                </div>
+
+
+
+                <div class="benefit-card">
+
+                    <span class="benefit-number">
+                        03
+                    </span>
+
+                    <div class="benefit-icon">
+                        ♢
+                    </div>
+
+                    <h3>
+                        Private Experience
+                    </h3>
+
+                    <p>
+                        Enjoy your Sri Lankan adventure
+                        without being part of a large
+                        tour group.
+                    </p>
+
+                </div>
+
+
+
+                <div class="benefit-card">
+
+                    <span class="benefit-number">
+                        04
+                    </span>
+
+                    <div class="benefit-icon">
+                        +
+                    </div>
+
+                    <h3>
+                        Personal Service
+                    </h3>
+
+                    <p>
+                        From your first message to your
+                        final destination, your journey
+                        is planned around you.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         CONTACT
+    =================================================== -->
+
+    <section class="guide-contact">
+
+        <div class="guide-container">
+
+            <div class="contact-box">
+
+
+                <div class="contact-content">
+
+                    <span class="profile-eyebrow">
+                        READY TO EXPLORE?
+                    </span>
+
+                    <h2>
+                        Let's plan your
+                        <em>Sri Lankan journey.</em>
+                    </h2>
+
+                    <p>
+                        Tell us where you want to go,
+                        how many days you have and what
+                        you would like to experience.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-actions">
+
+                    <a
+                        href="{% url 'planner' %}?guide={{ guide.id }}"
+                        class="contact-main-button"
+                    >
+                        Start Planning
+                        <span>→</span>
+                    </a>
+
+
+                    {% if guide.whatsapp %}
+
+                    <a
+                        href="https://wa.me/{{ guide.whatsapp }}"
+                        target="_blank"
+                        rel="noopener"
+                        class="contact-whatsapp"
+                    >
+                        WhatsApp {{ guide.name }}
+                    </a>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         BACK TO GUIDES
+    =================================================== -->
+
+    <section class="back-guides">
+
+        <div class="guide-container">
+
+            <a href="{% url 'guides' %}">
+                ← Back to all guides
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+{% endblock %}

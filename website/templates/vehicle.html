@@ -1,0 +1,684 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Private Vehicles | Explore Lanka
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'website/css/vehicle.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<main class="vehicles-page">
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="vehicles-hero">
+
+        <div class="vehicles-hero-overlay"></div>
+
+        <div class="vehicles-container">
+
+            <div class="vehicles-hero-content">
+
+                <span class="vehicles-eyebrow">
+                    PRIVATE TRAVEL • SRI LANKA
+                </span>
+
+                <h1>
+                    Your journey.
+                    <span>Your own vehicle.</span>
+                </h1>
+
+                <p>
+                    Travel Sri Lanka comfortably with a private vehicle,
+                    experienced local driver and the freedom to explore
+                    at your own pace.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a
+                        href="#vehicles"
+                        class="hero-primary"
+                    >
+                        <span>Explore Vehicles</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                    <a
+                        href="{% url 'planner' %}"
+                        class="hero-secondary"
+                    >
+                        Plan My Journey
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         INTRODUCTION
+    ====================================================== -->
+
+    <section class="vehicles-intro">
+
+        <div class="vehicles-container">
+
+            <div class="intro-grid">
+
+                <div class="intro-heading">
+
+                    <span class="section-label">
+                        TRAVEL YOUR WAY
+                    </span>
+
+                    <h2>
+                        Choose the right
+                        <em>travel space.</em>
+                    </h2>
+
+                </div>
+
+
+                <div class="intro-text">
+
+                    <p>
+                        Whether you are travelling as a couple, family
+                        or small group, choose a private vehicle that
+                        gives you comfort and flexibility throughout
+                        your Sri Lankan journey.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         VEHICLE SHOWCASE
+    ====================================================== -->
+
+    <section
+        class="vehicles-list"
+        id="vehicles"
+        aria-labelledby="vehicles-title"
+    >
+
+        <div class="vehicles-container">
+
+
+            <!-- SECTION HEADER -->
+
+            <div class="vehicles-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        OUR VEHICLES
+                    </span>
+
+                    <h2 id="vehicles-title">
+                        Travel in
+                        <em>comfort.</em>
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Private vehicles selected for comfortable
+                    journeys across Sri Lanka.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 VEHICLES AVAILABLE
+            ================================================== -->
+
+            {% if vehicles %}
+
+            <div class="vehicle-grid">
+
+
+                {% for vehicle in vehicles %}
+
+                <article class="vehicle-card">
+
+
+                    <!-- =========================================
+                         VEHICLE IMAGE
+                    ========================================== -->
+
+                    <div class="vehicle-image-wrapper">
+
+                        {% if vehicle.image %}
+
+                            <img
+                                src="{{ vehicle.image.url }}"
+                                alt="{{ vehicle.name }} - private travel vehicle"
+                                class="vehicle-image"
+                                loading="lazy"
+                            >
+
+                        {% else %}
+
+                            <div
+                                class="vehicle-image-placeholder"
+                                role="img"
+                                aria-label="Vehicle photo unavailable"
+                            >
+
+                                <div class="placeholder-icon">
+                                    🚐
+                                </div>
+
+                                <span>
+                                    Vehicle Photo
+                                </span>
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         INFORMATION PANEL
+                    ========================================== -->
+
+                    <div class="vehicle-card-content">
+
+
+                        <!-- CARD HEADER -->
+
+                        <div class="vehicle-card-header">
+
+                            <span class="vehicle-small-label">
+                                PRIVATE VEHICLE
+                            </span>
+
+                            <h3>
+                                {{ vehicle.name }}
+                            </h3>
+
+                        </div>
+
+
+
+                        <!-- DESCRIPTION -->
+
+                        {% if vehicle.short_description %}
+
+                            <p class="vehicle-description">
+                                {{ vehicle.short_description }}
+                            </p>
+
+                        {% elif vehicle.description %}
+
+                            <p class="vehicle-description">
+                                {{ vehicle.description|truncatewords:25 }}
+                            </p>
+
+                        {% else %}
+
+                            <p class="vehicle-description">
+                                {{ vehicle.name }} for comfortable private
+                                travel throughout Sri Lanka.
+                            </p>
+
+                        {% endif %}
+
+
+
+                        <!-- =====================================
+                             VEHICLE SPECS
+                        ====================================== -->
+
+                        <div class="vehicle-specs">
+
+
+                            <!-- PASSENGERS -->
+
+                            <div class="vehicle-spec">
+
+                                <span
+                                    class="spec-icon"
+                                    aria-hidden="true"
+                                >
+                                    👤
+                                </span>
+
+                                <div class="spec-content">
+
+                                    <small>
+                                        PASSENGERS
+                                    </small>
+
+                                    <strong>
+                                        {{ vehicle.passenger_capacity }}
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- LUGGAGE -->
+
+                            <div class="vehicle-spec">
+
+                                <span
+                                    class="spec-icon"
+                                    aria-hidden="true"
+                                >
+                                    🧳
+                                </span>
+
+                                <div class="spec-content">
+
+                                    <small>
+                                        LUGGAGE
+                                    </small>
+
+                                    <strong>
+                                        {{ vehicle.luggage_capacity }}
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- COMFORT -->
+
+                            <div class="vehicle-spec">
+
+                                <span
+                                    class="spec-icon"
+                                    aria-hidden="true"
+                                >
+                                    ❄
+                                </span>
+
+                                <div class="spec-content">
+
+                                    <small>
+                                        COMFORT
+                                    </small>
+
+                                    {% if vehicle.air_conditioned %}
+
+                                        <strong>
+                                            A/C
+                                        </strong>
+
+                                    {% else %}
+
+                                        <strong>
+                                            Comfort
+                                        </strong>
+
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- =====================================
+                             FEATURE TAGS
+                        ====================================== -->
+
+                        {% if vehicle.private_vehicle or vehicle.air_conditioned or vehicle.comfortable %}
+
+                            <div
+                                class="vehicle-tags"
+                                aria-label="Vehicle features"
+                            >
+
+                                {% if vehicle.private_vehicle %}
+
+                                    <span>
+                                        Private
+                                    </span>
+
+                                {% endif %}
+
+
+                                {% if vehicle.air_conditioned %}
+
+                                    <span>
+                                        Air Conditioned
+                                    </span>
+
+                                {% endif %}
+
+
+                                {% if vehicle.comfortable %}
+
+                                    <span>
+                                        Comfortable
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+                        {% endif %}
+
+
+
+                        <!-- =====================================
+                             PRICE
+                        ====================================== -->
+
+                        {% if vehicle.price_note %}
+
+                            <div class="vehicle-price">
+
+                                {{ vehicle.price_note }}
+
+                            </div>
+
+                        {% endif %}
+
+
+
+                        <!-- =====================================
+                             BUTTON
+                        ====================================== -->
+
+                        <a
+                            href="{% url 'planner' %}?vehicle={{ vehicle.id }}"
+                            class="vehicle-button"
+                            aria-label="Choose {{ vehicle.name }}"
+                        >
+
+                            <span>
+                                Choose This Vehicle
+                            </span>
+
+                            <span aria-hidden="true">
+                                →
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+
+                </article>
+
+                {% endfor %}
+
+
+            </div>
+
+
+            <!-- =================================================
+                 EMPTY STATE
+            ================================================== -->
+
+            {% else %}
+
+            <div class="vehicles-empty">
+
+                <div
+                    class="empty-icon"
+                    aria-hidden="true"
+                >
+                    🚐
+                </div>
+
+                <h3>
+                    Vehicles coming soon
+                </h3>
+
+                <p>
+                    Our private travel vehicles will be available here soon.
+                </p>
+
+                <a href="{% url 'planner' %}">
+
+                    <span>
+                        Start Planning
+                    </span>
+
+                    <span aria-hidden="true">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+            {% endif %}
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         WHY PRIVATE TRAVEL
+    ====================================================== -->
+
+    <section class="private-travel-section">
+
+        <div class="vehicles-container">
+
+            <div class="private-travel-grid">
+
+
+                <div class="private-travel-content">
+
+                    <span class="section-label">
+                        WHY PRIVATE TRAVEL
+                    </span>
+
+                    <h2>
+                        More freedom.
+                        <em>More Sri Lanka.</em>
+                    </h2>
+
+                    <p>
+                        Your vehicle is more than just transportation.
+                        It becomes your comfortable travel space while
+                        you discover beaches, mountains, villages,
+                        wildlife and hidden places.
+                    </p>
+
+                    <a
+                        href="{% url 'planner' %}"
+                        class="private-travel-button"
+                    >
+
+                        <span>
+                            Build My Journey
+                        </span>
+
+                        <span aria-hidden="true">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- BENEFITS -->
+
+                <div class="benefits-grid">
+
+
+                    <div class="benefit-item">
+
+                        <span>01</span>
+
+                        <h3>
+                            Private Journey
+                        </h3>
+
+                        <p>
+                            No shared buses or large tour groups.
+                        </p>
+
+                    </div>
+
+
+                    <div class="benefit-item">
+
+                        <span>02</span>
+
+                        <h3>
+                            Flexible Stops
+                        </h3>
+
+                        <p>
+                            Stop when you want and explore freely.
+                        </p>
+
+                    </div>
+
+
+                    <div class="benefit-item">
+
+                        <span>03</span>
+
+                        <h3>
+                            Local Driver
+                        </h3>
+
+                        <p>
+                            Travel with someone who knows Sri Lanka.
+                        </p>
+
+                    </div>
+
+
+                    <div class="benefit-item">
+
+                        <span>04</span>
+
+                        <h3>
+                            Comfortable Travel
+                        </h3>
+
+                        <p>
+                            Enjoy your journey in your own private space.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FINAL CTA
+    ====================================================== -->
+
+    <section class="vehicles-cta">
+
+        <div class="vehicles-container">
+
+            <div class="cta-box">
+
+
+                <div class="cta-content">
+
+                    <span class="section-label">
+                        READY TO EXPLORE?
+                    </span>
+
+                    <h2>
+                        Let's build your
+                        <em>Sri Lankan journey.</em>
+                    </h2>
+
+                    <p>
+                        Choose your vehicle, destination and travel dates.
+                        We'll help you create a private journey around Sri Lanka.
+                    </p>
+
+                </div>
+
+
+                <div class="cta-actions">
+
+                    <a
+                        href="{% url 'planner' %}"
+                        class="cta-primary"
+                    >
+
+                        <span>
+                            Plan My Trip
+                        </span>
+
+                        <span aria-hidden="true">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="{% url 'guides' %}"
+                        class="cta-secondary"
+                    >
+                        Meet Your Guide
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+{% endblock %}

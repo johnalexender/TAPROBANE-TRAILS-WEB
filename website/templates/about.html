@@ -1,0 +1,695 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    About Us | Serendip Private Journeys
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'website/css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="about-page">
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <section class="about-hero">
+
+        <div class="about-hero-overlay"></div>
+
+        <div class="about-container">
+
+            <div class="about-hero-content">
+
+                <span class="about-eyebrow">
+                    SERENDIP PRIVATE JOURNEYS
+                </span>
+
+                <h1>
+                    Sri Lanka,
+                    <span>your way.</span>
+                </h1>
+
+                <p>
+                    Private journeys, local knowledge and unforgettable
+                    experiences designed around the way you want to travel.
+                </p>
+
+                <div class="about-hero-actions">
+
+                    <a
+                        href="{% url 'planner' %}"
+                        class="about-primary-btn"
+                    >
+                        Plan My Journey
+                        <span>→</span>
+                    </a>
+
+                    <a
+                        href="{% url 'guides' %}"
+                        class="about-outline-btn"
+                    >
+                        Meet Our Guides
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hero-scroll">
+            <span></span>
+            SCROLL TO EXPLORE
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         INTRO
+    ========================================== -->
+
+    <section class="about-introduction">
+
+        <div class="about-container">
+
+            <div class="about-intro-grid">
+
+                <div class="about-intro-heading">
+
+                    <span class="about-section-label">
+                        WHO WE ARE
+                    </span>
+
+                    <h2>
+                        More than a trip.
+                        <em>A personal journey.</em>
+                    </h2>
+
+                </div>
+
+
+                <div class="about-intro-text">
+
+                    <p class="large-text">
+                        Serendip Private Journeys was created for travellers
+                        who want to experience Sri Lanka beyond the ordinary.
+                    </p>
+
+                    <p>
+                        We believe the best journeys are not always the ones
+                        that follow a fixed schedule. They are the journeys
+                        where you can stop for a beautiful view, discover a
+                        quiet village, taste something local or simply spend
+                        a little longer somewhere you love.
+                    </p>
+
+                    <p>
+                        With a private vehicle and local travel companion,
+                        you can explore Sri Lanka at your own pace while
+                        enjoying the comfort, flexibility and personal
+                        attention of a private journey.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         BRAND STORY
+    ========================================== -->
+
+    <section class="about-story">
+
+        <div class="about-container">
+
+            <div class="about-story-grid">
+
+                <div class="about-story-image">
+
+                    <img
+                        src="{% static 'website/images/about-sri-lanka.jpg' %}"
+                        alt="Sri Lanka landscape"
+                    >
+
+                    <div class="story-image-card">
+
+                        <span>
+                            OUR PHILOSOPHY
+                        </span>
+
+                        <strong>
+                            Travel slowly.
+                            Experience deeply.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-story-content">
+
+                    <span class="about-section-label">
+                        OUR STORY
+                    </span>
+
+                    <h2>
+                        Built around
+                        <em>the traveller.</em>
+                    </h2>
+
+                    <p>
+                        Sri Lanka is a country of incredible variety.
+                        Golden beaches, mist-covered mountains, ancient
+                        cities, wildlife, tea country and vibrant local
+                        communities can all be found within one journey.
+                    </p>
+
+                    <p>
+                        But discovering these places is not only about
+                        reaching a destination. It is about how you get
+                        there and the experiences you have along the way.
+                    </p>
+
+                    <p>
+                        That's why Serendip Private Journeys focuses on
+                        private travel. Instead of forcing every traveller
+                        into the same itinerary, we create journeys that
+                        can adapt to your interests, schedule and pace.
+                    </p>
+
+                    <div class="story-signature">
+
+                        <span>
+                            SERENDIP PRIVATE JOURNEYS
+                        </span>
+
+                        <strong>
+                            Discover Sri Lanka differently.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         EXPERIENCE
+    ========================================== -->
+
+    <section class="about-experience">
+
+        <div class="about-container">
+
+            <div class="experience-header">
+
+                <span class="about-section-label">
+                    THE SERENDIP EXPERIENCE
+                </span>
+
+                <h2>
+                    Travel with freedom.
+                    <em>Experience more.</em>
+                </h2>
+
+                <p>
+                    Every part of your journey is designed to make
+                    travelling through Sri Lanka easier, more comfortable
+                    and more personal.
+                </p>
+
+            </div>
+
+
+            <div class="experience-grid">
+
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        01
+                    </div>
+
+                    <div class="experience-icon">
+                        ◉
+                    </div>
+
+                    <h3>
+                        Private Travel
+                    </h3>
+
+                    <p>
+                        Enjoy your own vehicle and travel without the
+                        limitations of a large group tour.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        02
+                    </div>
+
+                    <div class="experience-icon">
+                        ↗
+                    </div>
+
+                    <h3>
+                        Local Knowledge
+                    </h3>
+
+                    <p>
+                        Discover places, routes and experiences that
+                        can make your journey feel truly local.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        03
+                    </div>
+
+                    <div class="experience-icon">
+                        ◇
+                    </div>
+
+                    <h3>
+                        Your Own Pace
+                    </h3>
+
+                    <p>
+                        Spend more time where you love and change your
+                        plans when you discover something unexpected.
+                    </p>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        04
+                    </div>
+
+                    <div class="experience-icon">
+                        +
+                    </div>
+
+                    <h3>
+                        Personal Service
+                    </h3>
+
+                    <p>
+                        From planning your trip to completing your journey,
+                        we keep the experience personal.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         WHY SRI LANKA
+    ========================================== -->
+
+    <section class="about-lanka">
+
+        <div class="about-container">
+
+            <div class="lanka-grid">
+
+                <div class="lanka-content">
+
+                    <span class="about-section-label">
+                        ONE ISLAND. MANY EXPERIENCES.
+                    </span>
+
+                    <h2>
+                        From coastlines
+                        <em>to mountains.</em>
+                    </h2>
+
+                    <p>
+                        Sri Lanka may be a small island, but every region
+                        has something different to discover.
+                    </p>
+
+                    <div class="lanka-list">
+
+                        <div>
+                            <span>01</span>
+                            <strong>Golden Beaches</strong>
+                        </div>
+
+                        <div>
+                            <span>02</span>
+                            <strong>Hill Country</strong>
+                        </div>
+
+                        <div>
+                            <span>03</span>
+                            <strong>Wildlife & Nature</strong>
+                        </div>
+
+                        <div>
+                            <span>04</span>
+                            <strong>Culture & Heritage</strong>
+                        </div>
+
+                        <div>
+                            <span>05</span>
+                            <strong>Local Food</strong>
+                        </div>
+
+                        <div>
+                            <span>06</span>
+                            <strong>Hidden Places</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="lanka-image">
+
+                    <img
+                        src="{% static 'website/images/about-lanka.jpg' %}"
+                        alt="Explore Sri Lanka"
+                    >
+
+                    <div class="lanka-image-caption">
+
+                        <span>
+                            ISLAND LIFE
+                        </span>
+
+                        <strong>
+                            Discover the unexpected.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         HOW WE TRAVEL
+    ========================================== -->
+
+    <section class="about-process">
+
+        <div class="about-container">
+
+            <div class="process-heading">
+
+                <span class="about-section-label">
+                    HOW IT WORKS
+                </span>
+
+                <h2>
+                    From your idea
+                    <em>to the open road.</em>
+                </h2>
+
+            </div>
+
+
+            <div class="process-grid">
+
+                <div class="process-step">
+
+                    <span class="process-line"></span>
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Tell Us Your Plan
+                    </h3>
+
+                    <p>
+                        Tell us where you want to go, how many days you
+                        have and what you would like to experience.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <span class="process-line"></span>
+
+                    <div class="process-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Choose Your Journey
+                    </h3>
+
+                    <p>
+                        Select your destinations, vehicle and preferred
+                        travel style.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <span class="process-line"></span>
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Meet Your Local Guide
+                    </h3>
+
+                    <p>
+                        Travel with a local driver who can help you
+                        experience Sri Lanka more naturally.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <div class="process-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Start Exploring
+                    </h3>
+
+                    <p>
+                        Relax, enjoy the road and create memories that
+                        go beyond the usual tourist itinerary.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         VALUES
+    ========================================== -->
+
+    <section class="about-values">
+
+        <div class="about-container">
+
+            <div class="values-grid">
+
+                <div class="values-heading">
+
+                    <span class="about-section-label">
+                        WHAT MATTERS TO US
+                    </span>
+
+                    <h2>
+                        The values behind
+                        <em>every journey.</em>
+                    </h2>
+
+                </div>
+
+
+                <div class="value-item">
+
+                    <span>01</span>
+
+                    <div>
+                        <h3>
+                            Authenticity
+                        </h3>
+
+                        <p>
+                            We want you to experience the real character
+                            of Sri Lanka.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="value-item">
+
+                    <span>02</span>
+
+                    <div>
+                        <h3>
+                            Flexibility
+                        </h3>
+
+                        <p>
+                            Your journey should adapt to you, not the
+                            other way around.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="value-item">
+
+                    <span>03</span>
+
+                    <div>
+                        <h3>
+                            Comfort
+                        </h3>
+
+                        <p>
+                            A comfortable journey lets you focus on
+                            enjoying the destination.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="value-item">
+
+                    <span>04</span>
+
+                    <div>
+                        <h3>
+                            Local Connection
+                        </h3>
+
+                        <p>
+                            Meaningful travel begins with people who know
+                            and love their home.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CTA
+    ========================================== -->
+
+    <section class="about-final-cta">
+
+        <div class="about-container">
+
+            <div class="final-cta-box">
+
+                <div class="final-cta-content">
+
+                    <span class="about-section-label">
+                        YOUR JOURNEY STARTS HERE
+                    </span>
+
+                    <h2>
+                        Don't just visit Sri Lanka.
+                        <em>Experience it.</em>
+                    </h2>
+
+                    <p>
+                        Tell us what kind of journey you imagine and
+                        let's create a private Sri Lankan experience
+                        around you.
+                    </p>
+
+                </div>
+
+
+                <div class="final-cta-actions">
+
+                    <a
+                        href="{% url 'planner' %}"
+                        class="final-primary-btn"
+                    >
+                        Start Planning
+                        <span>→</span>
+                    </a>
+
+                    <a
+                        href="{% url 'vehicles' %}"
+                        class="final-secondary-btn"
+                    >
+                        View Vehicles
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

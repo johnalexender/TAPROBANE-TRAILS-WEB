@@ -1,0 +1,958 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Discover Sri Lanka | Private Driver & Local Guide
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <!-- Background Travel Video -->
+    <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+    >
+        <source src="{% static 'website/videos/hero-travel.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Dark overlay over video -->
+    <div class="hero-overlay"></div>
+
+    <!-- Hero Content -->
+    <div class="container hero-content">
+
+        <span class="eyebrow">
+            PRIVATE DRIVER • LOCAL GUIDE • SRI LANKA
+        </span>
+
+        <h1>
+            Discover Sri Lanka
+            <span>Your Way.</span>
+        </h1>
+
+        <p>
+            Your own private vehicle, a local guide who knows
+            the island, and a journey designed around your
+            interests and your pace.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{% url 'planner' %}" class="btn btn-primary">
+                Plan My Journey
+                <span>→</span>
+            </a>
+
+            <a href="#experiences" class="btn btn-outline">
+                Explore Experiences
+            </a>
+
+        </div>
+
+        <div class="hero-trust">
+
+            <div>
+                <strong>01</strong>
+                <span>
+                    Private<br>
+                    Journey
+                </span>
+            </div>
+
+            <div>
+                <strong>02</strong>
+                <span>
+                    Local<br>
+                    Knowledge
+                </span>
+            </div>
+
+            <div>
+                <strong>03</strong>
+                <span>
+                    Your<br>
+                    Own Pace
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= BENEFITS ================= -->
+
+<section class="benefits">
+
+    <div class="container benefits-grid">
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🚗
+            </div>
+
+            <div>
+                <h3>Private Vehicle</h3>
+
+                <p>
+                    Travel comfortably with your
+                    own vehicle.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🌴
+            </div>
+
+            <div>
+                <h3>Local Experience</h3>
+
+                <p>
+                    Discover places beyond the
+                    usual tourist route.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🧭
+            </div>
+
+            <div>
+                <h3>Flexible Trips</h3>
+
+                <p>
+                    Explore Sri Lanka at your
+                    own pace.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                💬
+            </div>
+
+            <div>
+                <h3>Direct Contact</h3>
+
+                <p>
+                    Speak directly with your
+                    driver and guide.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GUIDE PREVIEW ================= -->
+
+<section class="section guide-section">
+
+    <div class="container guide-grid">
+
+        <div class="guide-image">
+
+            <img src="{% static 'website/images/guide.jpeg' %}"
+                 alt="Sri Lankan private travel guide">
+
+            <div class="experience-badge">
+
+                <strong>LOCAL</strong>
+                <span>KNOWLEDGE</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="guide-content">
+
+            <span class="section-label">
+                MEET YOUR GUIDE
+            </span>
+
+            <h2>
+                More than a driver.
+                <span>Your local connection.</span>
+            </h2>
+
+            <p>
+                Hi, I'm <strong>Mohammed Manzaf</strong>.
+                I help travelers experience Sri Lanka
+                through comfortable private journeys,
+                local knowledge and genuine conversations.
+            </p>
+
+            <p>
+                Build a trip around the places, food,
+                culture, beaches and experiences
+                you actually want to discover.
+            </p>
+
+
+            <div class="guide-stats">
+
+                <div>
+                    <strong>20+</strong>
+                    <span>Travel Areas</span>
+                </div>
+
+                <div>
+                    <strong>100%</strong>
+                    <span>Private Trips</span>
+                </div>
+
+                <div>
+                    <strong>1:1</strong>
+                    <span>Direct Contact</span>
+                </div>
+
+            </div>
+
+
+            <a href="{% url 'about' %}"
+               class="text-link">
+
+                Meet Your Guide →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= VEHICLE ================= -->
+
+<section class="section vehicle-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                YOUR PRIVATE RIDE
+            </span>
+
+            <h2>
+                Travel comfortably
+                <span>across the island.</span>
+            </h2>
+
+            <p>
+                Your journey is private from pickup
+                to destination.
+            </p>
+
+        </div>
+
+
+        <div class="vehicle-card">
+
+            <div class="vehicle-image">
+                 <!-- Place your images here. Add class "active" to the first one -->
+                  <img src="{% static 'website/images/vehicle1.jpeg' %}" alt="Private travel vehicle in Sri Lanka" class="slide active">
+                  <img src="{% static 'website/images/vehicle2.jpeg' %}" alt="Private travel vehicle interior" class="slide">
+                  <img src="{% static 'website/images/vehicle3.jpeg' %}" alt="Private vehicle on the road" class="slide">
+                  <img src="{% static 'website/images/vehicle4.jpeg' %}" alt="Private vehicle parked" class="slide">
+                  <img src="{% static 'website/images/vehicle5.jpeg' %}" alt="Private vehicle with driver" class="slide">
+
+            </div>
+            <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const slides = document.querySelectorAll('.vehicle-image .slide');
+                let currentSlide = 0;
+                const slideInterval = 3500; // Change image every 3.5 seconds 
+                if (slides.length > 1) {
+                    setInterval(() => {
+                        slides[currentSlide].classList.remove('active');
+                        currentSlide = (currentSlide + 1) % slides.length;
+                        slides[currentSlide].classList.add('active');
+                    }, slideInterval);
+            }});
+            </script>
+
+
+            <div class="vehicle-info">
+
+                <span class="vehicle-tag">
+                    PRIVATE VEHICLE
+                </span>
+
+                <h3>
+                    Your Journey. Your Space.
+                </h3>
+
+                <p>
+                    Enjoy the freedom of travelling
+                    around Sri Lanka with a dedicated
+                    vehicle and local driver.
+                </p>
+
+
+                <div class="vehicle-features">
+
+                    <div>✓ Private travel</div>
+                    <div>✓ Air conditioned</div>
+                    <div>✓ Flexible stops</div>
+                    <div>✓ Luggage friendly</div>
+
+                </div>
+
+
+                <a href="{% url 'guides' %}"
+                   class="btn btn-dark">
+
+                    Ask About Your Trip →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXPERIENCES ================= -->
+
+<section id="experiences" class="section experiences-section">
+
+    <div class="container">
+
+        <div class="section-heading centered">
+
+            <span class="section-label">
+                EXPERIENCE SRI LANKA
+            </span>
+
+            <h2>
+                Choose what
+                <span>you want to discover.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="experience-grid">
+
+            <article class="experience-card large">
+
+                <img src="{% static 'website/images/beach.jpeg' %}"
+                     alt="Sri Lanka beach">
+
+                <div class="experience-overlay">
+
+                    <span>01</span>
+
+                    <h3>
+                        Coast & Beaches
+                    </h3>
+
+                    <p>
+                        Tropical beaches, coastal roads
+                        and unforgettable sunsets.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="experience-card">
+
+                <img src="{% static 'website/images/wildlife.jpeg' %}"
+                     alt="Sri Lanka wildlife">
+
+                <div class="experience-overlay">
+
+                    <span>02</span>
+
+                    <h3>
+                        Wildlife & Nature
+                    </h3>
+
+                    <p>
+                        Explore Sri Lanka's
+                        natural landscapes.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="experience-card">
+
+                <img src="{% static 'website/images/culture.jpeg' %}"
+                     alt="Sri Lanka culture">
+
+                <div class="experience-overlay">
+
+                    <span>03</span>
+
+                    <h3>
+                        Culture & Heritage
+                    </h3>
+
+                    <p>
+                        Ancient cities, temples
+                        and local traditions.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="experience-card">
+
+                <img src="{% static 'website/images/mountains.jpeg' %}"
+                     alt="Sri Lanka mountains">
+
+                <div class="experience-overlay">
+
+                    <span>04</span>
+
+                    <h3>
+                        Hills & Adventure
+                    </h3>
+
+                    <p>
+                        Mountains, tea country
+                        and scenic roads.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div class="center-button">
+
+            <a href="{% url 'home' %}#destinations"
+               class="btn btn-dark">
+
+                Explore All Experiences →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= DESTINATIONS ================= -->
+
+<section class="destinations" id="destinations">
+
+    <div class="container">
+
+        <!-- ================= SECTION HEADER ================= -->
+
+        <div class="destination-header">
+
+            <div>
+
+                <span class="section-label">
+                    DESTINATIONS
+                </span>
+
+                <h2>
+                    Explore Sri Lanka
+                    <span>Your Way.</span>
+                </h2>
+
+            </div>
+
+            <p>
+                From misty mountains to quiet beaches,
+                discover places shaped around your journey.
+            </p>
+
+        </div>
+
+
+        <!-- ================= DESTINATION GRID ================= -->
+
+        <div class="destination-grid">
+
+
+            <!-- =================================================
+                 01 - ELLA
+            ================================================== -->
+
+            <article
+                class="destination-card"
+                data-location="Ella"
+            >
+
+                <img
+                    src="{% static 'images/ella.jpg' %}"
+                    alt="Ella Sri Lanka"
+                    loading="lazy"
+                >
+
+                <div class="destination-card-overlay"></div>
+
+
+                <div class="destination-number">
+                    01
+                </div>
+
+
+                <div class="destination-content">
+
+                    <span class="destination-location">
+                        CENTRAL HIGHLANDS
+                    </span>
+
+                    <h3>
+                        Ella
+                    </h3>
+
+                    <p>
+                        Mountains, tea plantations and
+                        scenic train journeys.
+                    </p>
+
+
+                    <a
+                        href="{% url 'services' %}?destination=Ella"
+                        class="destination-watch"
+                    >
+
+                        <span class="play-icon">
+                            ▶
+                        </span>
+
+                        <span>
+                            Watch journey
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 02 - SIGIRIYA
+            ================================================== -->
+
+            <article
+                class="destination-card"
+                data-location="Sigiriya"
+            >
+
+                <img
+                    src="{% static 'images/sigiriya.jpg' %}"
+                    alt="Sigiriya Sri Lanka"
+                    loading="lazy"
+                >
+
+                <div class="destination-card-overlay"></div>
+
+
+                <div class="destination-number">
+                    02
+                </div>
+
+
+                <div class="destination-content">
+
+                    <span class="destination-location">
+                        CULTURAL TRIANGLE
+                    </span>
+
+                    <h3>
+                        Sigiriya
+                    </h3>
+
+                    <p>
+                        Ancient history, nature and
+                        the famous Lion Rock.
+                    </p>
+
+
+                    <a
+                        href="{% url 'services' %}?destination=Sigiriya"
+                        class="destination-watch"
+                    >
+
+                        <span class="play-icon">
+                            ▶
+                        </span>
+
+                        <span>
+                            Watch journey
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 03 - TRINCOMALEE
+            ================================================== -->
+
+            <article
+                class="destination-card"
+                data-location="Trincomalee"
+            >
+
+                <img
+                    src="{% static 'images/trincomalee.jpg' %}"
+                    alt="Trincomalee Sri Lanka"
+                    loading="lazy"
+                >
+
+                <div class="destination-card-overlay"></div>
+
+
+                <div class="destination-number">
+                    03
+                </div>
+
+
+                <div class="destination-content">
+
+                    <span class="destination-location">
+                        EAST COAST
+                    </span>
+
+                    <h3>
+                        Trincomalee
+                    </h3>
+
+                    <p>
+                        Beautiful beaches and
+                        coastal experiences.
+                    </p>
+
+
+                    <a
+                        href="{% url 'services' %}?destination=Trincomalee"
+                        class="destination-watch"
+                    >
+
+                        <span class="play-icon">
+                            ▶
+                        </span>
+
+                        <span>
+                            Watch journey
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 04 - GALLE
+            ================================================== -->
+
+            <article
+                class="destination-card"
+                data-location="Galle"
+            >
+
+                <img
+                    src="{% static 'images/Galle.jpeg' %}"
+                    alt="Galle Sri Lanka"
+                    loading="lazy"
+                >
+
+                <div class="destination-card-overlay"></div>
+
+
+                <div class="destination-number">
+                    04
+                </div>
+
+
+                <div class="destination-content">
+
+                    <span class="destination-location">
+                        SOUTHERN COAST
+                    </span>
+
+                    <h3>
+                        Galle
+                    </h3>
+
+                    <p>
+                        Historic city, colonial architecture
+                        and vibrant local markets.
+                    </p>
+
+
+                    <a
+                        href="{% url 'services' %}?destination=Galle"
+                        class="destination-watch"
+                    >
+
+                        <span class="play-icon">
+                            ▶
+                        </span>
+
+                        <span>
+                            Watch journey
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 05 - MANNAR
+            ================================================== -->
+
+            <article
+                class="destination-card"
+                data-location="Mannar"
+            >
+
+                <img
+                    src="{% static 'images/mannar.jpg' %}"
+                    alt="Mannar Sri Lanka"
+                    loading="lazy"
+                >
+
+                <div class="destination-card-overlay"></div>
+
+
+                <div class="destination-number">
+                    05
+                </div>
+
+
+                <div class="destination-content">
+
+                    <span class="destination-location">
+                        NORTHERN SRI LANKA
+                    </span>
+
+                    <h3>
+                        Mannar
+                    </h3>
+
+                    <p>
+                        Quiet beaches, wildlife and
+                        unique landscapes.
+                    </p>
+
+
+                    <a
+                        href="{% url 'services' %}?destination=Mannar"
+                        class="destination-watch"
+                    >
+
+                        <span class="play-icon">
+                            ▶
+                        </span>
+
+                        <span>
+                            Watch journey
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 06 - JAFFNA
+            ================================================== -->
+
+            <article
+                class="destination-card"
+                data-location="Jaffna"
+            >
+
+                <img
+                    src="{% static 'images/jaffna.jpg' %}"
+                    alt="Jaffna Sri Lanka"
+                    loading="lazy"
+                >
+
+                <div class="destination-card-overlay"></div>
+
+
+                <div class="destination-number">
+                    06
+                </div>
+
+
+                <div class="destination-content">
+
+                    <span class="destination-location">
+                        NORTHERN SRI LANKA
+                    </span>
+
+                    <h3>
+                        Jaffna
+                    </h3>
+
+                    <p>
+                        Tamil culture, heritage and
+                        northern Sri Lanka.
+                    </p>
+
+
+                    <a
+                        href="{% url 'services' %}?destination=Jaffna"
+                        class="destination-watch"
+                    >
+
+                        <span class="play-icon">
+                            ▶
+                        </span>
+
+                        <span>
+                            Watch journey
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FINAL CTA ================= -->
+
+<section class="final-cta" id="finalCTA">
+
+    <!-- Animated background -->
+    <div class="cta-bg"></div>
+
+    <!-- Ambient glow -->
+    <div class="cta-glow cta-glow-one"></div>
+    <div class="cta-glow cta-glow-two"></div>
+
+    <!-- Floating particles -->
+    <div class="cta-particles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="container final-cta-content">
+
+        <span class="section-label">
+            READY TO EXPLORE?
+        </span>
+
+        <h2>
+            Your Sri Lankan story
+            <span>starts here.</span>
+        </h2>
+
+        <p>
+            Tell me where you're coming from,
+            what you want to see, and how long
+            you have.
+        </p>
+
+        <div class="cta-buttons">
+
+            <a href="{% url 'planner' %}"
+               class="btn btn-primary cta-main-btn">
+
+                <span>Plan My Trip</span>
+                <span class="arrow">→</span>
+
+            </a>
+
+            <a href="https://wa.me/9476774097"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-whatsapp">
+
+                <span class="whatsapp-icon">◉</span>
+                <span>WhatsApp Me</span>
+
+            </a>
+
+        </div>
+
+        <div class="cta-bottom-text">
+            <span class="cta-line"></span>
+            <span>LET'S MAKE IT UNFORGETTABLE</span>
+            <span class="cta-line"></span>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+{% endblock %}

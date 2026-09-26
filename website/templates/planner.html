@@ -1,0 +1,437 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Plan Your Trip | Explore Lanka
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'website/css/planner.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="planner-page">
+
+    <!-- ==========================================
+         1. HERO SECTION
+    =========================================== -->
+    <section class="planner-hero">
+        <div class="planner-hero-inner">
+            <span class="eyebrow">PRIVATE JOURNEY PLANNER</span>
+
+            <h1>
+                Plan your journey.<br>
+                <span>Your way.</span>
+            </h1>
+
+            <p>
+                Tell us where you would like to go, when you would like
+                to travel and what kind of private journey you have in mind.
+            </p>
+
+            <div class="hero-trust">
+                <div><span>✓</span> Private vehicle</div>
+                <div><span>✓</span> Local driver</div>
+                <div><span>✓</span> Flexible journey</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         2. PLANNER FORM + SUMMARY
+    =========================================== -->
+    <section class="planner-section">
+        <div class="planner-container">
+
+            <!-- LEFT: FORM -->
+            <div class="planner-form-wrapper">
+                <div class="form-header">
+                    <div>
+                        <span class="small-label">YOUR JOURNEY</span>
+                        <h2>Let's plan your trip</h2>
+                    </div>
+                    <span class="required-text">* Required</span>
+                </div>
+
+                <form method="POST" action="{% url 'planner' %}" class="planner-form" id="plannerForm">
+                    {% csrf_token %}
+
+                    <!-- STEP 01: VEHICLE -->
+                    <div class="planner-step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <span class="step-label">YOUR VEHICLE</span>
+                            <h3>Choose your travel space</h3>
+                            <p class="step-description">
+                                Travel privately with your own dedicated vehicle and local driver.
+                            </p>
+
+                            <div class="vehicle-options">
+
+    {% for vehicle in vehicles %}
+
+        <label class="vehicle-card">
+
+            <input
+                type="radio"
+                name="vehicle"
+                value="{{ vehicle.id }}"
+                {% if selected_vehicle and selected_vehicle.id == vehicle.id %}
+                    checked
+                {% elif not selected_vehicle and forloop.first %}
+                    checked
+                {% endif %}
+            >
+
+            <div class="vehicle-card-inner">
+
+
+                <!-- ==========================================
+                     VEHICLE IMAGE
+                =========================================== -->
+
+                <div class="vehicle-image">
+
+                    {% if vehicle.image %}
+
+                        <img
+                            src="{{ vehicle.image.url }}"
+                            alt="{{ vehicle.name }}"
+                        >
+
+                    {% endif %}
+
+                    <div class="vehicle-image-overlay"></div>
+
+
+                    <span class="vehicle-photo-label">
+
+                        {% if selected_vehicle and selected_vehicle.id == vehicle.id %}
+
+                            SELECTED VEHICLE
+
+                        {% else %}
+
+                            PRIVATE VEHICLE
+
+                        {% endif %}
+
+                    </span>
+
+
+                    <div class="vehicle-check">
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <!-- ==========================================
+                     VEHICLE INFORMATION
+                =========================================== -->
+
+                <div class="vehicle-info">
+
+
+                    <div>
+
+                        <strong>
+                            {{ vehicle.name }}
+                        </strong>
+
+                        <span>
+                            Your dedicated travel vehicle
+                        </span>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    {% if vehicle.short_description %}
+
+                        <p>
+                            {{ vehicle.short_description }}
+                        </p>
+
+                    {% elif vehicle.description %}
+
+                        <p>
+                            {{ vehicle.description|truncatewords:25 }}
+                        </p>
+
+                    {% else %}
+
+                        <p>
+                            A comfortable private vehicle
+                            for exploring Sri Lanka with your
+                            own local driver.
+                        </p>
+
+                    {% endif %}
+
+
+                    <!-- ======================================
+                         FEATURES
+                    ======================================= -->
+
+                    <div class="vehicle-features">
+
+
+                        <span>
+                            ✓ Up to {{ vehicle.passenger_capacity }} passengers
+                        </span>
+
+
+                        {% if vehicle.air_conditioned %}
+
+                            <span>
+                                ✓ Air conditioned
+                            </span>
+
+                        {% endif %}
+
+
+                        {% if vehicle.luggage_capacity %}
+
+                            <span>
+                                ✓ {{ vehicle.luggage_capacity }} luggage
+                            </span>
+
+                        {% endif %}
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </label>
+
+    {% empty %}
+
+        <p>
+            No vehicles are currently available.
+        </p>
+
+    {% endfor %}
+
+</div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 02: DESTINATION -->
+                    <div class="planner-step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <span class="step-label">DESTINATION</span>
+                            <h3>Where would you like to go?</h3>
+                            <p class="step-description">
+                                Choose your main destination. You can add additional places below.
+                            </p>
+
+                            <div class="input-group">
+                                <label for="destination">Main destination <span>*</span></label>
+                                <div class="select-wrapper">
+                                    <select id="destination" name="destination" required>
+                                        <option value="">Select your destination</option>
+                                        {% for destination in destinations %}
+                                        <option value="{{ destination.id }}" data-region="{{ destination.region }}" data-duration="{{ destination.duration }}">
+                                            {{ destination.name }}
+                                        </option>
+                                        {% endfor %}
+                                        <option value="other">Other / Custom destination</option>
+                                    </select>
+                                    <span class="select-arrow">↓</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="places">Places you'd like to visit</label>
+                                <textarea id="places" name="places" rows="3" placeholder="Example: Ella, Nuwara Eliya, Kandy and Sigiriya..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 03: TRIP DETAILS -->
+                    <div class="planner-step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <span class="step-label">TRIP DETAILS</span>
+                            <h3>When are you travelling?</h3>
+                            <div class="form-grid">
+                                <div class="input-group">
+                                    <label for="duration">Trip duration <span>*</span></label>
+                                    <select id="duration" name="duration" required>
+                                        <option value="">Select duration</option>
+                                        {% for day in durations %}
+                                        <option value="{{ day }}">{{ day }} Day{% if day != 1 %}s{% endif %}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="travel_date">Start date <span>*</span></label>
+                                    <input type="date" id="travel_date" name="travel_date" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 04: PICKUP -->
+                    <div class="planner-step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <span class="step-label">PICKUP & DROP-OFF</span>
+                            <h3>Where should your journey begin?</h3>
+                            <p class="step-description">Airport, hotel, railway station or any location in Sri Lanka.</p>
+                            <div class="input-group">
+                                <label for="pickup">Pickup location <span>*</span></label>
+                                <input type="text" id="pickup" name="pickup" placeholder="Example: Bandaranaike International Airport" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="dropoff">Final drop-off</label>
+                                <input type="text" id="dropoff" name="dropoff" placeholder="Example: Colombo hotel">
+                            </div>
+                            <div class="location-note">
+                                <span>✦</span>
+                                <p>Don't know the exact location yet? Just enter the area or hotel name.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 05: TRAVELLERS -->
+                    <div class="planner-step">
+                        <div class="step-number">05</div>
+                        <div class="step-content">
+                            <span class="step-label">TRAVELLERS</span>
+                            <h3>Who will be travelling?</h3>
+                            <div class="form-grid">
+                                <div class="input-group">
+                                    <label for="adults">Adults <span>*</span></label>
+                                    <select id="adults" name="adults" required>
+                                        {% for number in adult_numbers %}
+                                        <option value="{{ number }}">{{ number }} Adult{% if number != 1 %}s{% endif %}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="children">Children</label>
+                                    <select id="children" name="children">
+                                        {% for number in child_numbers %}
+                                        <option value="{{ number }}">{{ number }} Child{% if number != 1 %}ren{% endif %}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 06: CONTACT -->
+                    <div class="planner-step">
+                        <div class="step-number">06</div>
+                        <div class="step-content">
+                            <span class="step-label">YOUR DETAILS</span>
+                            <h3>How can we reach you?</h3>
+                            <p class="step-description">We'll use these details to discuss your journey.</p>
+                            <div class="form-grid">
+                                <div class="input-group">
+                                    <label for="name">Full name <span>*</span></label>
+                                    <input type="text" id="name" name="name" placeholder="Your full name" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="phone">WhatsApp number <span>*</span></label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+94 XX XXXX" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" name="email" placeholder="you@example.com">
+                            </div>
+                            <div class="input-group">
+                                <label for="message">Special requests</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us anything important about your journey..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT -->
+                    <div class="submit-area">
+                        <div class="submit-info">
+                            <span>✓</span>
+                            <p>Your request will be saved securely. After submitting, you can send the trip details directly through WhatsApp.</p>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <span>Send My Trip Request</span><b>→</b>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- RIGHT: LIVE SUMMARY -->
+            <aside class="trip-summary">
+                <div class="summary-top">
+                    <span class="small-label">YOUR JOURNEY</span>
+                    <h2>Let's make it<br>memorable.</h2>
+                    <p>Your trip details update automatically while you plan your journey.</p>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-card-header">
+                        <span>TRIP REQUEST</span>
+                        <div>● Draft</div>
+                    </div>
+
+                    <div class="summary-item">
+                        <span class="summary-icon">🚐</span>
+                        <div><small>Vehicle</small><strong id="summaryVehicle">Private Van</strong></div>
+                    </div>
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-item">
+                        <span class="summary-icon">⌖</span>
+                        <div><small>Destination</small><strong id="summaryDestination">Not selected</strong></div>
+                    </div>
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row">
+                        <div><small>Duration</small><strong id="summaryDuration">—</strong></div>
+                        <div><small>Travellers</small><strong id="summaryTravellers">2 Adults</strong></div>
+                    </div>
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-item">
+                        <span class="summary-icon">⌖</span>
+                        <div><small>Pickup</small><strong id="summaryPickup">Not selected</strong></div>
+                    </div>
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-item">
+                        <span class="summary-icon">◷</span>
+                        <div><small>Travel dates</small><strong id="summaryDate">Not selected</strong></div>
+                    </div>
+                </div>
+
+                <div class="summary-benefits">
+                    <h3>Your journey includes</h3>
+                    <div class="benefit"><span>✓</span><div><strong>Private vehicle</strong><p>Your own dedicated travel space.</p></div></div>
+                    <div class="benefit"><span>✓</span><div><strong>Local driver</strong><p>Travel with local knowledge.</p></div></div>
+                    <div class="benefit"><span>✓</span><div><strong>Flexible stops</strong><p>Explore Sri Lanka at your pace.</p></div></div>
+                    <div class="benefit"><span>✓</span><div><strong>Luggage friendly</strong><p>Comfortable space for your belongings.</p></div></div>
+                </div>
+
+                <div class="quick-contact">
+                    <span class="small-label">NEED HELP?</span>
+                    <h3>Not sure what to choose?</h3>
+                    <p>Tell us what you have in mind and we'll help you plan the journey.</p>
+                    <a href="{% url 'guides' %}">Talk to us <span>→</span></a>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+</main>
+
+<script src="{% static 'website/js/planner.js' %}"></script>
+{% endblock %}

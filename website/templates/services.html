@@ -1,0 +1,966 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ destination.name }} | Serendip Private Journeys
+{% endblock %}
+
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'website/css/services.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- =========================================================
+     DESTINATION HERO
+========================================================= -->
+
+<section class="destination-hero">
+
+    {% if destination.hero_image %}
+
+        <img
+            src="{{ destination.hero_image.url }}"
+            alt="{{ destination.name }}"
+            class="hero-image"
+        >
+
+    {% endif %}
+
+
+    <div class="hero-overlay"></div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-breadcrumb">
+
+            <a href="/">
+                Sri Lanka
+            </a>
+
+            <span>/</span>
+
+            <span>
+                {{ destination.region }}
+            </span>
+
+        </div>
+
+
+        <span class="hero-location">
+            {{ destination.region }}
+        </span>
+
+
+        <h1>
+            {{ destination.name }}
+        </h1>
+
+
+        <p>
+            {{ destination.description }}
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="#story"
+                class="hero-primary"
+            >
+                Explore Journey
+                <span>↓</span>
+            </a>
+
+
+            <a
+                href="#gallery"
+                class="hero-secondary"
+            >
+                View Our Photos
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-bottom">
+
+        <span>
+            SCROLL TO EXPLORE
+        </span>
+
+        <div class="hero-line"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     QUICK INFORMATION
+========================================================= -->
+
+<section class="trip-overview">
+
+    <div class="overview-inner">
+
+        <div class="overview-intro">
+
+            <span class="eyebrow">
+                THE EXPERIENCE
+            </span>
+
+
+            <h2>
+                Discover
+                <em>{{ destination.name }}</em>
+            </h2>
+
+        </div>
+
+
+        <div class="overview-facts">
+
+            {% if destination.duration %}
+
+                <div class="overview-item">
+
+                    <span class="overview-number">
+                        01
+                    </span>
+
+                    <div>
+
+                        <small>
+                            JOURNEY
+                        </small>
+
+                        <strong>
+                            {{ destination.duration }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+
+            {% if destination.travel_type %}
+
+                <div class="overview-item">
+
+                    <span class="overview-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <small>
+                            EXPERIENCE
+                        </small>
+
+                        <strong>
+                            {{ destination.travel_type }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+
+            {% if destination.best_for %}
+
+                <div class="overview-item">
+
+                    <span class="overview-number">
+                        03
+                    </span>
+
+                    <div>
+
+                        <small>
+                            PERFECT FOR
+                        </small>
+
+                        <strong>
+                            {{ destination.best_for }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STORY
+========================================================= -->
+
+<section
+    class="story-section"
+    id="story"
+>
+
+    <div class="content-container">
+
+        <div class="story-grid">
+
+            <div class="story-heading">
+
+                <span class="eyebrow">
+                    OUR JOURNEY
+                </span>
+
+
+                <h2>
+                    More than<br>
+                    <em>a destination.</em>
+                </h2>
+
+            </div>
+
+
+            <div class="story-description">
+
+                {% if destination.intro %}
+
+                    <p class="story-lead">
+                        {{ destination.intro }}
+                    </p>
+
+                {% endif %}
+
+
+                <div class="story-divider"></div>
+
+
+                <p>
+                    We believe travelling is not simply about
+                    visiting famous places. It is about discovering
+                    the character of a destination, meeting local
+                    people and creating memories that stay with you.
+                </p>
+
+
+                <a
+                    href="#contact"
+                    class="story-link"
+                >
+                    Start planning your experience
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HIGHLIGHTS
+========================================================= -->
+
+<section class="highlights-section">
+
+    <div class="content-container">
+
+
+        <div class="section-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    DISCOVER
+                </span>
+
+
+                <h2>
+                    Highlights of
+                    <em>{{ destination.name }}</em>
+                </h2>
+
+            </div>
+
+
+            <p>
+                Places and experiences that make this
+                journey special.
+            </p>
+
+        </div>
+
+
+
+        <div class="highlights-grid">
+
+
+            {% for highlight in destination.highlights.all %}
+
+
+                <article class="highlight-card">
+
+
+                    <!-- Card top -->
+
+                    <div class="highlight-top">
+
+                        <span>
+                            {{ forloop.counter|stringformat:"02d" }}
+                        </span>
+
+
+                        {% if highlight.video %}
+
+                            <button
+                                type="button"
+                                class="highlight-arrow"
+                                onclick="toggleHighlightVideo(this)"
+                                aria-label="Play {{ highlight.title }}"
+                            >
+                                ↗
+                            </button>
+
+                        {% endif %}
+
+                    </div>
+
+
+
+                    <!-- Highlight title -->
+
+                    <h3>
+                        {{ highlight.title }}
+                    </h3>
+
+
+
+                    <!-- Inline video -->
+
+                    {% if highlight.video %}
+
+                        <div class="highlight-video-preview">
+
+                            <video
+                                class="highlight-video"
+                                controls
+                                playsinline
+                                preload="metadata"
+                            >
+
+                                <source
+                                    src="{{ highlight.video.url }}"
+                                    type="video/mp4"
+                                >
+
+                                Your browser does not support
+                                video playback.
+
+                            </video>
+
+                        </div>
+
+                    {% endif %}
+
+
+                </article>
+
+
+            {% empty %}
+
+                <p class="empty-message">
+                    Journey highlights will be added soon.
+                </p>
+
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PREVIOUS JOURNEY / ITINERARY
+========================================================= -->
+
+<section class="itinerary-section">
+
+    <div class="content-container">
+
+
+        <div class="section-header centered">
+
+            <span class="eyebrow">
+                PREVIOUS JOURNEY
+            </span>
+
+
+            <h2>
+                How the experience unfolds
+            </h2>
+
+
+            <p>
+                A glimpse of what a journey through
+                {{ destination.name }} can look like.
+            </p>
+
+        </div>
+
+
+
+        <div class="itinerary">
+
+
+            {% for day in destination.trip_days.all %}
+
+
+                <article class="itinerary-row">
+
+
+                    <div class="itinerary-day">
+
+                        <span>
+                            DAY
+                        </span>
+
+                        <strong>
+                            {{ day.day_number|stringformat:"02d" }}
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="itinerary-marker">
+
+                        <span></span>
+
+                    </div>
+
+
+
+                    <div class="itinerary-content">
+
+                        <h3>
+                            {{ day.title }}
+                        </h3>
+
+
+                        <p>
+                            {{ day.description }}
+                        </p>
+
+                    </div>
+
+
+                </article>
+
+
+            {% empty %}
+
+                <p class="empty-message">
+                    Trip itinerary will be added soon.
+                </p>
+
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PHOTO GALLERY
+========================================================= -->
+
+<section
+    class="gallery-section"
+    id="gallery"
+>
+
+    <div class="content-container">
+
+
+        <div class="gallery-heading">
+
+            <div>
+
+                <span class="eyebrow">
+                    FROM THE ROAD
+                </span>
+
+
+                <h2>
+                    Moments from
+                    <em>{{ destination.name }}</em>
+                </h2>
+
+            </div>
+
+
+            <p>
+                Real moments from journeys we've
+                created for our travellers.
+            </p>
+
+        </div>
+
+
+
+        <div class="photo-gallery">
+
+
+            {% for photo in destination.photos.all %}
+
+
+                <figure
+                    class="gallery-photo gallery-photo-{{ forloop.counter }}"
+                >
+
+                    <img
+                        src="{{ photo.image.url }}"
+                        alt="{{ photo.caption|default:destination.name }}"
+                        loading="lazy"
+                    >
+
+
+                    <div class="photo-overlay">
+
+                        <span>
+                            +
+                        </span>
+
+
+                        {% if photo.caption %}
+
+                            <p>
+                                {{ photo.caption }}
+                            </p>
+
+                        {% endif %}
+
+                    </div>
+
+                </figure>
+
+
+            {% empty %}
+
+                <p class="empty-message">
+                    Photos will be added soon.
+                </p>
+
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section class="services-section">
+
+    <div class="content-container">
+
+
+        <div class="section-header centered">
+
+            <span class="eyebrow">
+                TRAVEL WITH EASE
+            </span>
+
+
+            <h2>
+                What we provide
+            </h2>
+
+
+            <p>
+                We handle the details so you can focus
+                on enjoying your journey.
+            </p>
+
+        </div>
+
+
+
+        <div class="services-grid">
+
+
+            {% for service in destination.services.all %}
+
+
+                <article class="service-card">
+
+
+                    <div class="service-number">
+                        {{ service.number|stringformat:"02d" }}
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            {{ service.title }}
+                        </h3>
+
+
+                        <p>
+                            {{ service.description }}
+                        </p>
+
+                    </div>
+
+
+                    <span class="service-arrow">
+                        ↗
+                    </span>
+
+
+                </article>
+
+
+            {% empty %}
+
+                <p class="empty-message">
+                    Services will be added soon.
+                </p>
+
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     REVIEWS
+========================================================= -->
+
+<section
+    class="reviews-section"
+    id="reviews"
+>
+
+    <div class="content-container">
+
+
+        <div class="reviews-top">
+
+
+            <div>
+
+                <span class="eyebrow">
+                    TRAVELLER STORIES
+                </span>
+
+
+                <h2>
+                    What our guests
+                    <em>remember.</em>
+                </h2>
+
+            </div>
+
+
+
+            <div class="rating-summary">
+
+                <strong>
+                    4.9
+                </strong>
+
+
+                <div class="rating-stars">
+                    ★★★★★
+                </div>
+
+
+                <span>
+                    Guest experience
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="reviews-grid">
+
+
+            {% for review in destination.reviews.all %}
+
+
+                {% if review.is_published %}
+
+
+                    <article class="review-card">
+
+
+                        <div class="review-stars">
+
+                            {% for star in "12345" %}
+
+                                {% if forloop.counter <= review.rating %}
+                                    ★
+                                {% endif %}
+
+                            {% endfor %}
+
+                        </div>
+
+
+
+                        <blockquote>
+
+                            "{{ review.review_text }}"
+
+                        </blockquote>
+
+
+
+                        <div class="review-person">
+
+
+                            <div class="review-avatar">
+
+                                {{ review.customer_name|slice:":1"|upper }}
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    {{ review.customer_name }}
+                                </strong>
+
+
+                                {% if review.country %}
+
+                                    <span>
+                                        {{ review.country }}
+                                    </span>
+
+                                {% endif %}
+
+                            </div>
+
+
+                        </div>
+
+
+                    </article>
+
+
+                {% endif %}
+
+
+            {% empty %}
+
+                <p class="empty-message">
+                    Customer reviews will be added soon.
+                </p>
+
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section
+    class="final-cta"
+    id="contact"
+>
+
+
+    {% if destination.hero_image %}
+
+        <img
+            src="{{ destination.hero_image.url }}"
+            alt=""
+            class="cta-background"
+        >
+
+    {% endif %}
+
+
+    <div class="cta-overlay"></div>
+
+
+    <div class="cta-content">
+
+
+        <span class="eyebrow">
+            YOUR JOURNEY STARTS HERE
+        </span>
+
+
+        <h2>
+            Ready to discover
+            <br>
+            <em>{{ destination.name }}?</em>
+        </h2>
+
+
+        <p>
+            Tell us what kind of experience you're looking for.
+            We'll help create a journey around you.
+        </p>
+
+
+        <a
+            href="#"
+            class="cta-button"
+        >
+            Plan My Journey
+            <span>→</span>
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HIGHLIGHT VIDEO SCRIPT
+========================================================= -->
+
+<script>
+
+function toggleHighlightVideo(button) {
+
+    const card =
+        button.closest(".highlight-card");
+
+    if (!card) {
+        return;
+    }
+
+
+    const video =
+        card.querySelector(".highlight-video");
+
+    const preview =
+        card.querySelector(".highlight-video-preview");
+
+
+    if (!video || !preview) {
+        return;
+    }
+
+
+    const isOpen =
+        preview.classList.contains("active");
+
+
+    /* =====================================================
+       CLOSE
+    ===================================================== */
+
+    if (isOpen) {
+
+        video.pause();
+
+        video.currentTime = 0;
+
+        preview.classList.remove("active");
+
+        button.classList.remove("active");
+
+        button.setAttribute(
+            "aria-label",
+            "Play " + button.closest(".highlight-card").querySelector("h3").textContent.trim()
+        );
+
+        return;
+    }
+
+
+    /* =====================================================
+       OPEN
+    ===================================================== */
+
+    preview.classList.add("active");
+
+    button.classList.add("active");
+
+    button.setAttribute(
+        "aria-label",
+        "Close " + card.querySelector("h3").textContent.trim()
+    );
+
+
+    /* Play video */
+
+    video.play().catch(function () {
+
+        /*
+         * Browser may block autoplay.
+         * The controls remain available.
+         */
+
+    });
+
+}
+
+</script>
+
+
+{% endblock %}

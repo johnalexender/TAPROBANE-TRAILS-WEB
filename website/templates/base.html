@@ -1,0 +1,345 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+            Serendip Trails | Private Sri Lanka Travel
+        {% endblock %}
+    </title>
+
+    <meta
+        name="description"
+        content="Explore Sri Lanka with your own private driver, local guide and flexible travel experience."
+    >
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         MAIN WEBSITE CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="{% static 'website/css/style.css' %}"
+    >
+
+
+    <!-- =====================================================
+         PAGE-SPECIFIC CSS
+         Example: services.css
+    ====================================================== -->
+
+    {% block extra_css %}
+    {% endblock %}
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header
+    class="header"
+    id="header"
+>
+
+    <div class="container nav-container">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="{% url 'home' %}"
+            class="logo"
+        >
+
+            <span class="logo-mark">
+                TT
+            </span>
+
+            <span>
+
+                <strong>
+                    TAPROBANE TRAILS
+                </strong>
+
+                <small>
+                    PRIVATE JOURNEYS
+                </small>
+
+            </span>
+
+        </a>
+
+
+        <!-- =================================================
+             MOBILE MENU BUTTON
+        ================================================== -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
+        <nav
+            class="navbar"
+            id="navbar"
+        >
+
+            <a
+                href="{% url 'home' %}"
+                class="nav-link"
+            >
+                Home
+            </a>
+
+
+            <a
+                href="{% url 'guides' %}"
+                class="nav-link"
+            >
+                Our Guide
+            </a>
+
+
+            <a
+                href="{% url 'vehicles' %}"
+                class="nav-link"
+            >
+                Vehicle
+            </a>
+
+
+            <a
+                href="{% url 'about' %}"
+                class="nav-link"
+            >
+                About Us
+            </a>
+
+
+            <a
+                href="{% url 'planner' %}"
+                class="nav-cta"
+            >
+                Plan My Trip
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main>
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+
+        <!-- =================================================
+             FOOTER BRAND
+        ================================================== -->
+
+        <div class="footer-brand">
+
+            <a
+                href="{% url 'home' %}"
+                class="logo footer-logo"
+            >
+
+                <span class="logo-mark">
+                    TT
+                </span>
+
+                <span>
+
+                    <strong>
+                        TAPROBANE TRAILS
+                    </strong>
+
+                    <small>
+                        PRIVATE JOURNEYS
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <p>
+                Private driver and local travel experiences
+                across Sri Lanka.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             EXPLORE
+        ================================================== -->
+
+        <div class="footer-column">
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="{% url 'guides' %}#guides">
+                Our Guide
+            </a>
+
+            <a href="{% url 'vehicles' %}#vehicle">
+                Vehicle
+            </a>
+
+            <a href="{% url 'about' %}#about">
+                About Us
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             PLAN
+        ================================================== -->
+
+        <div class="footer-column">
+
+            <h4>
+                Plan
+            </h4>
+
+            <a href="{% url 'planner' %}#planner">
+                Plan My Trip
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             CONTACT
+        ================================================== -->
+
+        <div class="footer-column">
+
+            <h4>
+                Contact
+            </h4>
+
+
+            <a href="mailto:asfakasf0@gmail.com">
+                asfakasf0@gmail.com
+            </a>
+
+
+            <a
+                href="https://wa.me/94771234567"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                WhatsApp
+            </a>
+
+
+            <span>
+                Sri Lanka 🇱🇰
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER BOTTOM
+    ====================================================== -->
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <span>
+                ©
+                <span id="year"></span>
+                Serendip Private Journeys
+            </span>
+
+            <span>
+                Built for meaningful travel.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="{% static 'website/js/script.js' %}"></script>
+
+
+</body>
+</html>
