@@ -33,6 +33,7 @@ DEBUG = os.environ.get("DEBUG", "False") == "True"
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
+    "asfaqbm.pythonanywhere.com",
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get(
@@ -45,6 +46,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 CSRF_TRUSTED_ORIGINS = [
     "http://*.trycloudflare.com",
     "https://andrew-disposal-surfaces-word.trycloudflare.com",
+    "https://asfaqbm.pythonanywhere.com",
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
