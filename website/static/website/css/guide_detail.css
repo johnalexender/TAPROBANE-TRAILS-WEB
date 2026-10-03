@@ -1,0 +1,1462 @@
+/* =====================================================
+   GUIDE DETAIL PAGE
+   EXPLORE LANKA
+===================================================== */
+
+:root {
+
+    --gd-green: #09251f;
+    --gd-dark: #061b17;
+
+    --gd-orange: #f28a32;
+    --gd-orange-dark: #df7620;
+
+    --gd-cream: #f7f5ef;
+    --gd-white: #ffffff;
+
+    --gd-text: #17332c;
+    --gd-muted: #718079;
+
+    --gd-border: #dfe5e1;
+}
+
+
+/* =====================================================
+   BASE
+===================================================== */
+
+.guide-detail-page {
+
+    background: var(--gd-cream);
+
+    color: var(--gd-text);
+
+    overflow: hidden;
+}
+
+
+.guide-container {
+
+    width: min(
+        calc(100% - 50px),
+        1200px
+    );
+
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.guide-breadcrumb-wrap {
+
+    background:
+        var(--gd-white);
+
+    border-bottom:
+        1px solid var(--gd-border);
+}
+
+
+.guide-breadcrumb {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    min-height: 52px;
+
+    font-size: 9px;
+}
+
+
+.guide-breadcrumb a {
+
+    color: var(--gd-muted);
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+
+.guide-breadcrumb a:hover {
+
+    color: var(--gd-orange);
+}
+
+
+.guide-breadcrumb span {
+
+    color: #b8c0bc;
+}
+
+
+.guide-breadcrumb strong {
+
+    color: var(--gd-green);
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.guide-profile-hero {
+
+    padding:
+        70px 0 85px;
+
+    background:
+        var(--gd-cream);
+}
+
+
+.guide-hero-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(380px, 0.95fr)
+        minmax(450px, 1.05fr);
+
+    gap: 75px;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+   MAIN PHOTO
+===================================================== */
+
+.guide-main-photo {
+
+    position: relative;
+
+    height: 650px;
+
+    overflow: hidden;
+
+    background: var(--gd-green);
+
+    box-shadow:
+        0 25px 60px
+        rgba(9,37,31,0.14);
+}
+
+
+.guide-main-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.guide-photo-placeholder {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        var(--gd-green);
+}
+
+
+.guide-photo-placeholder span {
+
+    width: 130px;
+
+    height: 130px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 55px;
+}
+
+
+/* IMAGE OVERLAY */
+
+.guide-main-photo::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 230px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(6,27,23,0.9)
+        );
+
+    pointer-events: none;
+}
+
+
+/* FEATURED */
+
+.profile-featured {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    z-index: 5;
+
+    padding:
+        9px 12px;
+
+    background:
+        var(--gd-orange);
+
+    color: white;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* PHOTO CAPTION */
+
+.photo-caption {
+
+    position: absolute;
+
+    z-index: 5;
+
+    left: 28px;
+
+    right: 28px;
+
+    bottom: 27px;
+
+    color: white;
+}
+
+
+.photo-caption span {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color:
+        var(--gd-orange);
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.photo-caption strong {
+
+    display: block;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 27px;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   PROFILE INFO
+===================================================== */
+
+.profile-eyebrow {
+
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: var(--gd-orange);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.2px;
+}
+
+
+.guide-hero-info h1 {
+
+    margin: 0;
+
+    color: var(--gd-green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(48px, 5vw, 72px);
+
+    line-height: 0.98;
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+}
+
+
+.guide-hero-info h2 {
+
+    margin:
+        12px 0 0;
+
+    color: var(--gd-muted);
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.profile-location {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 18px;
+
+    color: var(--gd-green);
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+.location-pin {
+
+    color: var(--gd-orange);
+
+    font-size: 8px;
+}
+
+
+.profile-location span:last-child {
+
+    color: var(--gd-muted);
+
+    font-weight: 400;
+}
+
+
+/* DESCRIPTION */
+
+.profile-description {
+
+    max-width: 650px;
+
+    margin-top: 28px;
+
+    color: var(--gd-muted);
+
+    font-size: 12px;
+
+    line-height: 1.85;
+}
+
+
+.profile-description p {
+
+    margin:
+        0 0 10px;
+}
+
+
+/* =====================================================
+   FACTS
+===================================================== */
+
+.profile-facts {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    margin-top: 28px;
+
+    border-top:
+        1px solid var(--gd-border);
+
+    border-bottom:
+        1px solid var(--gd-border);
+}
+
+
+.profile-fact {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        18px 10px 18px 0;
+}
+
+
+.profile-fact:nth-child(2n) {
+
+    padding-left: 18px;
+
+    border-left:
+        1px solid var(--gd-border);
+}
+
+
+.profile-fact:nth-child(n+3) {
+
+    border-top:
+        1px solid var(--gd-border);
+}
+
+
+.fact-icon {
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background:
+        #e9efeb;
+
+    color:
+        var(--gd-orange);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+.profile-fact small {
+
+    display: block;
+
+    color: #9aa49f;
+
+    font-size: 6px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+
+.profile-fact strong {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--gd-green);
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   PROFILE ACTIONS
+===================================================== */
+
+.profile-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+
+.primary-profile-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    min-width: 200px;
+
+    padding:
+        17px 18px;
+
+    background:
+        var(--gd-orange);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    transition:
+        0.25s ease;
+}
+
+
+.primary-profile-button strong {
+
+    font-size: 17px;
+
+    font-weight: 400;
+}
+
+
+.primary-profile-button:hover {
+
+    background:
+        var(--gd-orange-dark);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.whatsapp-profile-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding:
+        15px 17px;
+
+    border:
+        1px solid var(--gd-green);
+
+    color:
+        var(--gd-green);
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    transition: 0.25s ease;
+}
+
+
+.whatsapp-profile-button:hover {
+
+    background:
+        var(--gd-green);
+
+    color: white;
+}
+
+
+.whatsapp-icon {
+
+    color:
+        var(--gd-orange);
+
+    font-size: 7px;
+
+    font-weight: 900;
+}
+
+
+/* =====================================================
+   INTRO STRIP
+===================================================== */
+
+.guide-intro-strip {
+
+    padding:
+        75px 0;
+
+    background:
+        var(--gd-green);
+
+    color: white;
+}
+
+
+.intro-strip-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+
+.intro-strip-grid > div > span {
+
+    display: block;
+
+    margin-bottom: 14px;
+
+    color:
+        var(--gd-orange);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.intro-strip-grid h2 {
+
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(36px, 4vw, 53px);
+
+    line-height: 1.05;
+
+    font-weight: 400;
+}
+
+
+.intro-strip-grid h2 em {
+
+    color:
+        var(--gd-orange);
+
+    font-style: normal;
+}
+
+
+.intro-strip-grid p {
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,0.62);
+
+    font-size: 12px;
+
+    line-height: 1.85;
+}
+
+
+/* =====================================================
+   VEHICLE
+===================================================== */
+
+.vehicle-section {
+
+    padding:
+        100px 0;
+
+    background:
+        var(--gd-cream);
+}
+
+
+.vehicle-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
+    gap: 75px;
+
+    align-items: center;
+}
+
+
+.vehicle-photo {
+
+    position: relative;
+
+    height: 480px;
+
+    overflow: hidden;
+
+    background:
+        var(--gd-green);
+}
+
+
+.vehicle-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease;
+}
+
+
+.vehicle-photo:hover img {
+
+    transform:
+        scale(1.035);
+}
+
+
+.vehicle-photo-label {
+
+    position: absolute;
+
+    left: 20px;
+
+    bottom: 20px;
+
+    padding:
+        9px 12px;
+
+    background:
+        rgba(6,27,23,0.88);
+
+    color: white;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.vehicle-content h2 {
+
+    margin: 0;
+
+    color: var(--gd-green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(38px, 4vw, 53px);
+
+    line-height: 1.05;
+
+    font-weight: 400;
+}
+
+
+.vehicle-content h2 em {
+
+    color: var(--gd-orange);
+
+    font-style: normal;
+}
+
+
+.vehicle-content > p {
+
+    max-width: 500px;
+
+    margin:
+        25px 0;
+
+    color: var(--gd-muted);
+
+    font-size: 12px;
+
+    line-height: 1.85;
+}
+
+
+.vehicle-features {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin:
+        25px 0 30px;
+}
+
+
+.vehicle-features div {
+
+    color: var(--gd-green);
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+.vehicle-features span {
+
+    margin-right: 7px;
+
+    color: var(--gd-orange);
+}
+
+
+.vehicle-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding:
+        15px 18px;
+
+    border:
+        1px solid var(--gd-green);
+
+    color: var(--gd-green);
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    transition: 0.25s ease;
+}
+
+
+.vehicle-button span {
+
+    color: var(--gd-orange);
+
+    font-size: 16px;
+}
+
+
+.vehicle-button:hover {
+
+    background: var(--gd-green);
+
+    color: white;
+}
+
+
+/* =====================================================
+   BENEFITS
+===================================================== */
+
+.guide-benefits {
+
+    padding:
+        95px 0 105px;
+
+    background:
+        #eeece5;
+}
+
+
+.benefits-header {
+
+    margin-bottom: 45px;
+}
+
+
+.benefits-header h2 {
+
+    margin: 0;
+
+    color: var(--gd-green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(38px, 4vw, 52px);
+
+    line-height: 1;
+
+    font-weight: 400;
+}
+
+
+.benefits-header h2 em {
+
+    color: var(--gd-orange);
+
+    font-style: normal;
+}
+
+
+.benefits-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 1px;
+
+    background:
+        var(--gd-border);
+
+    border:
+        1px solid var(--gd-border);
+}
+
+
+.benefit-card {
+
+    position: relative;
+
+    min-height: 270px;
+
+    padding: 30px;
+
+    background:
+        var(--gd-cream);
+}
+
+
+.benefit-number {
+
+    color:
+        #bbc4bf;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+}
+
+
+.benefit-icon {
+
+    margin-top: 35px;
+
+    color: var(--gd-orange);
+
+    font-size: 22px;
+}
+
+
+.benefit-card h3 {
+
+    margin:
+        15px 0 10px;
+
+    color: var(--gd-green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 21px;
+
+    font-weight: 400;
+}
+
+
+.benefit-card p {
+
+    margin: 0;
+
+    color: var(--gd-muted);
+
+    font-size: 9px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.guide-contact {
+
+    padding:
+        100px 0;
+
+    background:
+        var(--gd-green);
+}
+
+
+.contact-box {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 60px;
+}
+
+
+.contact-content h2 {
+
+    max-width: 650px;
+
+    margin: 0;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(38px, 4vw, 55px);
+
+    line-height: 1;
+
+    font-weight: 400;
+}
+
+
+.contact-content h2 em {
+
+    color: var(--gd-orange);
+
+    font-style: normal;
+}
+
+
+.contact-content p {
+
+    max-width: 500px;
+
+    margin:
+        20px 0 0;
+
+    color:
+        rgba(255,255,255,0.6);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+.contact-actions {
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.contact-main-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 35px;
+
+    min-width: 190px;
+
+    padding:
+        17px 18px;
+
+    background:
+        var(--gd-orange);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 800;
+}
+
+
+.contact-main-button span {
+
+    font-size: 17px;
+
+    font-weight: 400;
+}
+
+
+.contact-whatsapp {
+
+    padding:
+        15px 18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    color:
+        rgba(255,255,255,0.8);
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+
+.contact-whatsapp:hover {
+
+    border-color:
+        var(--gd-orange);
+
+    color:
+        var(--gd-orange);
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back-guides {
+
+    padding:
+        30px 0;
+
+    background:
+        var(--gd-dark);
+}
+
+
+.back-guides a {
+
+    color:
+        rgba(255,255,255,0.55);
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+
+.back-guides a:hover {
+
+    color:
+        var(--gd-orange);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .guide-hero-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 50px;
+    }
+
+
+    .guide-main-photo {
+
+        height: 600px;
+
+        max-width: 650px;
+    }
+
+
+    .intro-strip-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 30px;
+    }
+
+
+    .vehicle-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 45px;
+    }
+
+
+    .vehicle-photo {
+
+        max-width: 750px;
+    }
+
+
+    .benefits-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .contact-box {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .guide-container {
+
+        width:
+            calc(100% - 32px);
+    }
+
+
+    .guide-profile-hero {
+
+        padding:
+            40px 0 60px;
+    }
+
+
+    .guide-main-photo {
+
+        height: 480px;
+    }
+
+
+    .guide-hero-info h1 {
+
+        font-size: 48px;
+    }
+
+
+    .profile-facts {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .profile-fact:nth-child(2n) {
+
+        padding-left: 0;
+
+        border-left: none;
+    }
+
+
+    .profile-fact:nth-child(n+2) {
+
+        border-top:
+            1px solid var(--gd-border);
+    }
+
+
+    .profile-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .primary-profile-button,
+    .whatsapp-profile-button {
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+        justify-content: center;
+    }
+
+
+    .guide-intro-strip {
+
+        padding:
+            65px 0;
+    }
+
+
+    .vehicle-section {
+
+        padding:
+            70px 0;
+    }
+
+
+    .vehicle-photo {
+
+        height: 330px;
+    }
+
+
+    .vehicle-features {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .guide-benefits {
+
+        padding:
+            70px 0;
+    }
+
+
+    .benefits-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .benefit-card {
+
+        min-height: auto;
+    }
+
+
+    .guide-contact {
+
+        padding:
+            70px 0;
+    }
+
+
+    .contact-actions {
+
+        width: 100%;
+    }
+
+
+    .contact-main-button,
+    .contact-whatsapp {
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+        justify-content: center;
+    }
+
+}

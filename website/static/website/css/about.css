@@ -1,0 +1,974 @@
+/* =========================================
+   SERENDIP PRIVATE JOURNEYS
+   ABOUT PAGE
+========================================= */
+
+:root {
+    --about-green: #09251f;
+    --about-dark: #061914;
+    --about-orange: #f28a32;
+    --about-orange-dark: #dc721e;
+    --about-cream: #f7f5ef;
+    --about-white: #ffffff;
+    --about-text: #17332c;
+    --about-muted: #718079;
+    --about-border: #dfe5e1;
+}
+
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+.about-page {
+    overflow: hidden;
+
+    background: var(--about-cream);
+    color: var(--about-text);
+}
+
+.about-container {
+    width: min(1180px, calc(100% - 40px));
+
+    margin: 0 auto;
+}
+
+.about-section-label {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: var(--about-orange);
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.about-hero {
+    position: relative;
+
+    min-height: 680px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 25, 19, .97) 0%,
+            rgba(5, 25, 19, .86) 45%,
+            rgba(5, 25, 19, .35) 100%
+        ),
+        url("../images/about-sri-lanka.jpg");
+
+    background-position: center;
+    background-size: cover;
+}
+
+.about-hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(242, 138, 50, .16),
+            transparent 30%
+        );
+}
+
+.about-hero-content {
+    position: relative;
+
+    max-width: 720px;
+
+    color: white;
+}
+
+.about-eyebrow {
+    display: inline-block;
+
+    margin-bottom: 22px;
+
+    color: var(--about-orange);
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.about-hero h1 {
+    margin: 0;
+
+    font-size: clamp(54px, 8vw, 94px);
+    line-height: .94;
+
+    letter-spacing: -4px;
+}
+
+.about-hero h1 span {
+    display: block;
+
+    color: var(--about-orange);
+}
+
+.about-hero p {
+    max-width: 590px;
+
+    margin: 30px 0 35px;
+
+    color: rgba(255,255,255,.78);
+
+    font-size: 17px;
+    line-height: 1.85;
+}
+
+.about-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.about-primary-btn,
+.about-outline-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+
+    padding: 0 23px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition: .3s ease;
+}
+
+.about-primary-btn {
+    gap: 20px;
+
+    background: var(--about-orange);
+    color: white;
+}
+
+.about-primary-btn:hover {
+    background: var(--about-orange-dark);
+
+    transform: translateY(-2px);
+}
+
+.about-outline-btn {
+    border: 1px solid rgba(255,255,255,.4);
+
+    color: white;
+}
+
+.about-outline-btn:hover {
+    background: white;
+
+    color: var(--about-green);
+}
+
+.hero-scroll {
+    position: absolute;
+
+    right: 40px;
+    bottom: 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero-scroll span {
+    width: 30px;
+    height: 1px;
+
+    background: var(--about-orange);
+}
+
+
+/* =========================================
+   INTRODUCTION
+========================================= */
+
+.about-introduction {
+    padding: 115px 0 100px;
+}
+
+.about-intro-grid {
+    display: grid;
+
+    grid-template-columns: .9fr 1.1fr;
+
+    gap: 100px;
+}
+
+.about-intro-heading h2 {
+    margin: 0;
+
+    color: var(--about-green);
+
+    font-size: clamp(40px, 5vw, 62px);
+    line-height: 1.04;
+
+    letter-spacing: -2.5px;
+}
+
+.about-intro-heading em,
+.about-story-content em,
+.experience-header em,
+.lanka-content em,
+.process-heading em,
+.values-heading em,
+.final-cta-content em {
+    color: var(--about-orange);
+
+    font-style: normal;
+}
+
+.about-intro-text {
+    padding-top: 8px;
+}
+
+.about-intro-text p {
+    margin: 0 0 22px;
+
+    color: var(--about-muted);
+
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.about-intro-text .large-text {
+    color: var(--about-text);
+
+    font-size: 22px;
+    line-height: 1.65;
+}
+
+
+/* =========================================
+   STORY
+========================================= */
+
+.about-story {
+    padding: 110px 0;
+
+    background: white;
+}
+
+.about-story-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 85px;
+
+    align-items: center;
+}
+
+.about-story-image {
+    position: relative;
+
+    min-height: 600px;
+}
+
+.about-story-image img {
+    width: 100%;
+    height: 600px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.story-image-card {
+    position: absolute;
+
+    right: -25px;
+    bottom: 35px;
+
+    width: 235px;
+
+    padding: 25px;
+
+    background: var(--about-green);
+    color: white;
+
+    box-shadow: 0 18px 45px rgba(0,0,0,.18);
+}
+
+.story-image-card span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--about-orange);
+
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.story-image-card strong {
+    display: block;
+
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+.about-story-content h2 {
+    margin: 0 0 25px;
+
+    color: var(--about-green);
+
+    font-size: clamp(40px, 5vw, 58px);
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+.about-story-content p {
+    margin: 0 0 20px;
+
+    color: var(--about-muted);
+
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.story-signature {
+    margin-top: 35px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid var(--about-border);
+}
+
+.story-signature span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--about-orange);
+
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.story-signature strong {
+    color: var(--about-green);
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   EXPERIENCE
+========================================= */
+
+.about-experience {
+    padding: 110px 0;
+}
+
+.experience-header {
+    max-width: 760px;
+
+    margin-bottom: 55px;
+}
+
+.experience-header h2 {
+    margin: 0;
+
+    color: var(--about-green);
+
+    font-size: clamp(40px, 5vw, 62px);
+    line-height: 1.03;
+
+    letter-spacing: -2px;
+}
+
+.experience-header p {
+    max-width: 620px;
+
+    margin: 23px 0 0;
+
+    color: var(--about-muted);
+
+    line-height: 1.8;
+}
+
+.experience-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1px;
+
+    background: var(--about-border);
+
+    border: 1px solid var(--about-border);
+}
+
+.experience-card {
+    position: relative;
+
+    min-height: 310px;
+
+    padding: 30px;
+
+    background: white;
+
+    transition: .3s ease;
+}
+
+.experience-card:hover {
+    background: var(--about-green);
+
+    color: white;
+}
+
+.experience-number {
+    position: absolute;
+
+    top: 24px;
+    right: 25px;
+
+    color: #b9c2bd;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.experience-card:hover .experience-number {
+    color: var(--about-orange);
+}
+
+.experience-icon {
+    margin-top: 45px;
+    margin-bottom: 25px;
+
+    color: var(--about-orange);
+
+    font-size: 27px;
+}
+
+.experience-card h3 {
+    margin: 0 0 14px;
+
+    color: var(--about-green);
+
+    font-size: 21px;
+}
+
+.experience-card:hover h3 {
+    color: white;
+}
+
+.experience-card p {
+    margin: 0;
+
+    color: var(--about-muted);
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.experience-card:hover p {
+    color: rgba(255,255,255,.67);
+}
+
+
+/* =========================================
+   SRI LANKA
+========================================= */
+
+.about-lanka {
+    padding: 110px 0;
+
+    background: var(--about-green);
+
+    color: white;
+}
+
+.lanka-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 85px;
+
+    align-items: center;
+}
+
+.lanka-content h2 {
+    margin: 0;
+
+    color: white;
+
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: 1;
+
+    letter-spacing: -2.5px;
+}
+
+.lanka-content > p {
+    max-width: 540px;
+
+    margin: 25px 0 35px;
+
+    color: rgba(255,255,255,.65);
+
+    line-height: 1.8;
+}
+
+.lanka-list {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.lanka-list div {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    min-height: 62px;
+
+    border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.lanka-list span {
+    color: var(--about-orange);
+
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.lanka-list strong {
+    font-size: 13px;
+}
+
+.lanka-image {
+    position: relative;
+
+    min-height: 570px;
+}
+
+.lanka-image img {
+    width: 100%;
+    height: 570px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.lanka-image-caption {
+    position: absolute;
+
+    left: 25px;
+    bottom: 25px;
+
+    padding: 20px 23px;
+
+    background: rgba(6,25,20,.9);
+}
+
+.lanka-image-caption span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--about-orange);
+
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.lanka-image-caption strong {
+    font-size: 18px;
+}
+
+
+/* =========================================
+   PROCESS
+========================================= */
+
+.about-process {
+    padding: 110px 0;
+}
+
+.process-heading {
+    margin-bottom: 60px;
+}
+
+.process-heading h2 {
+    max-width: 700px;
+
+    margin: 0;
+
+    color: var(--about-green);
+
+    font-size: clamp(40px, 5vw, 60px);
+    line-height: 1.03;
+
+    letter-spacing: -2px;
+}
+
+.process-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+}
+
+.process-step {
+    position: relative;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--about-border);
+}
+
+.process-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    margin-bottom: 28px;
+
+    background: var(--about-green);
+    color: white;
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.process-step h3 {
+    margin: 0 0 12px;
+
+    color: var(--about-green);
+
+    font-size: 18px;
+}
+
+.process-step p {
+    margin: 0;
+
+    color: var(--about-muted);
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   VALUES
+========================================= */
+
+.about-values {
+    padding: 100px 0;
+
+    background: white;
+}
+
+.values-grid {
+    display: grid;
+
+    grid-template-columns: 1.1fr 1fr 1fr;
+
+    border-top: 1px solid var(--about-border);
+    border-left: 1px solid var(--about-border);
+}
+
+.values-heading {
+    grid-row: span 2;
+
+    padding: 45px;
+
+    border-right: 1px solid var(--about-border);
+    border-bottom: 1px solid var(--about-border);
+}
+
+.values-heading h2 {
+    margin: 0;
+
+    color: var(--about-green);
+
+    font-size: clamp(38px, 4vw, 52px);
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+.value-item {
+    display: flex;
+    gap: 20px;
+
+    padding: 35px;
+
+    border-right: 1px solid var(--about-border);
+    border-bottom: 1px solid var(--about-border);
+}
+
+.value-item > span {
+    color: var(--about-orange);
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.value-item h3 {
+    margin: 0 0 8px;
+
+    color: var(--about-green);
+
+    font-size: 18px;
+}
+
+.value-item p {
+    margin: 0;
+
+    color: var(--about-muted);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   FINAL CTA
+========================================= */
+
+.about-final-cta {
+    padding: 100px 0;
+}
+
+.final-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    padding: 65px;
+
+    background: var(--about-green);
+
+    color: white;
+}
+
+.final-cta-content h2 {
+    max-width: 700px;
+
+    margin: 0;
+
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1.03;
+
+    letter-spacing: -2px;
+}
+
+.final-cta-content p {
+    max-width: 600px;
+
+    margin: 20px 0 0;
+
+    color: rgba(255,255,255,.65);
+
+    line-height: 1.8;
+}
+
+.final-cta-actions {
+    min-width: 190px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.final-primary-btn,
+.final-secondary-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 19px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    transition: .3s ease;
+}
+
+.final-primary-btn {
+    background: var(--about-orange);
+    color: white;
+}
+
+.final-primary-btn:hover {
+    background: var(--about-orange-dark);
+}
+
+.final-secondary-btn {
+    border: 1px solid rgba(255,255,255,.25);
+
+    color: white;
+}
+
+.final-secondary-btn:hover {
+    background: white;
+
+    color: var(--about-green);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .about-intro-grid,
+    .about-story-grid,
+    .lanka-grid {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 45px 30px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .values-heading {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+
+    .final-cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .about-container {
+        width: min(100% - 28px, 1180px);
+    }
+
+    .about-hero {
+        min-height: 600px;
+
+        background-position: 65% center;
+    }
+
+    .about-hero h1 {
+        font-size: 53px;
+
+        letter-spacing: -2.5px;
+    }
+
+    .about-hero p {
+        font-size: 15px;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    .about-introduction,
+    .about-story,
+    .about-experience,
+    .about-lanka,
+    .about-process,
+    .about-values,
+    .about-final-cta {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    .about-story-image,
+    .about-story-image img,
+    .lanka-image,
+    .lanka-image img {
+        min-height: 420px;
+        height: 420px;
+    }
+
+    .story-image-card {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-card {
+        min-height: 250px;
+    }
+
+    .lanka-list {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values-heading {
+        grid-column: auto;
+    }
+
+    .final-cta-box {
+        padding: 35px 25px;
+    }
+
+}

@@ -1,0 +1,1327 @@
+/* =====================================================
+   EXPLORE LANKA
+   GUIDES PAGE
+===================================================== */
+
+:root {
+
+    --guide-green: #09251f;
+    --guide-dark: #061b17;
+    --guide-orange: #f28a32;
+    --guide-orange-dark: #df7620;
+
+    --guide-cream: #f7f5ef;
+    --guide-white: #ffffff;
+
+    --guide-text: #17332c;
+    --guide-muted: #718079;
+
+    --guide-border: #dfe5e1;
+}
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+.guides-page {
+
+    background: var(--guide-cream);
+
+    color: var(--guide-text);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.guides-hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: var(--guide-green);
+
+    color: white;
+
+    padding:
+        90px 35px 85px;
+}
+
+
+.guides-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border: 1px solid
+        rgba(242,138,50,0.16);
+
+    border-radius: 50%;
+
+    right: -200px;
+
+    top: -260px;
+}
+
+
+.guides-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+
+    height: 250px;
+
+    border: 1px solid
+        rgba(255,255,255,0.05);
+
+    border-radius: 50%;
+
+    left: -100px;
+
+    bottom: -150px;
+}
+
+
+.guides-hero-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        250px;
+
+    gap: 80px;
+
+    align-items: end;
+}
+
+
+.eyebrow {
+
+    display: block;
+
+    margin-bottom: 20px;
+
+    color: var(--guide-orange);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+}
+
+
+.guides-hero h1 {
+
+    max-width: 760px;
+
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(48px, 6vw, 76px);
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+}
+
+
+.guides-hero h1 span {
+
+    display: block;
+
+    color: var(--guide-orange);
+}
+
+
+.guides-hero-content > p {
+
+    max-width: 650px;
+
+    margin:
+        27px 0 0;
+
+    color:
+        rgba(255,255,255,0.67);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* HERO ACTIONS */
+
+.hero-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 32px;
+}
+
+
+.hero-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding:
+        16px 21px;
+
+    background: var(--guide-orange);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    transition: 0.25s ease;
+}
+
+
+.hero-button:hover {
+
+    background:
+        var(--guide-orange-dark);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.hero-button span {
+
+    font-size: 17px;
+
+    font-weight: 400;
+}
+
+
+.hero-link {
+
+    color:
+        rgba(255,255,255,0.75);
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    border-bottom:
+        1px solid
+        var(--guide-orange);
+
+    padding-bottom: 5px;
+}
+
+
+.hero-link span {
+
+    color: var(--guide-orange);
+
+    margin-left: 8px;
+}
+
+
+/* HERO STATS */
+
+.hero-side {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.15);
+}
+
+
+.hero-stat {
+
+    padding:
+        20px 10px;
+}
+
+
+.hero-stat + .hero-stat {
+
+    border-left:
+        1px solid
+        rgba(255,255,255,0.15);
+}
+
+
+.hero-stat strong {
+
+    display: block;
+
+    color: var(--guide-orange);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+}
+
+
+.hero-stat span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color:
+        rgba(255,255,255,0.55);
+
+    font-size: 8px;
+
+    line-height: 1.4;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.guides-intro {
+
+    padding:
+        80px 25px;
+}
+
+
+.section-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+
+.guides-intro .section-container {
+
+    display: grid;
+
+    grid-template-columns:
+        180px 1fr;
+
+    gap: 70px;
+}
+
+
+.intro-label span {
+
+    color: var(--guide-orange);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.intro-content {
+
+    max-width: 800px;
+}
+
+
+.intro-content h2 {
+
+    margin: 0;
+
+    color: var(--guide-green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(34px, 4vw, 52px);
+
+    line-height: 1.1;
+
+    font-weight: 400;
+}
+
+
+.intro-content h2 em {
+
+    color: var(--guide-orange);
+
+    font-style: normal;
+}
+
+
+.intro-content p {
+
+    max-width: 670px;
+
+    margin:
+        25px 0 0;
+
+    color: var(--guide-muted);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   GUIDES SECTION
+===================================================== */
+
+.guides-section {
+
+    padding:
+        80px 25px 110px;
+
+    background: #eeece5;
+}
+
+
+.section-header {
+
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 40px;
+}
+
+
+.section-eyebrow {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: var(--guide-orange);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.section-header h2 {
+
+    margin: 0;
+
+    color: var(--guide-green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 38px;
+
+    font-weight: 400;
+}
+
+
+.section-header > p {
+
+    max-width: 310px;
+
+    margin: 0;
+
+    color: var(--guide-muted);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   GUIDE GRID
+===================================================== */
+
+.guides-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =====================================================
+   GUIDE CARD
+===================================================== */
+
+.guide-card {
+
+    overflow: hidden;
+
+    background: white;
+
+    border:
+        1px solid var(--guide-border);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    box-shadow:
+        0 5px 20px
+        rgba(9,37,31,0.04);
+}
+
+
+.guide-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        0 22px 45px
+        rgba(9,37,31,0.13);
+}
+
+
+/* =====================================================
+   GUIDE IMAGE
+===================================================== */
+
+.guide-image {
+
+    position: relative;
+
+    height: 365px;
+
+    overflow: hidden;
+
+    background:
+        #dce2de;
+}
+
+
+.guide-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.6s ease;
+}
+
+
+.guide-card:hover
+.guide-image img {
+
+    transform:
+        scale(1.045);
+}
+
+
+/* PLACEHOLDER */
+
+.guide-placeholder {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        var(--guide-green);
+}
+
+
+.guide-placeholder span {
+
+    width: 100px;
+
+    height: 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.3);
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 42px;
+}
+
+
+/* IMAGE GRADIENT */
+
+.guide-image-gradient {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 150px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(6,27,23,0.82)
+        );
+
+    pointer-events: none;
+}
+
+
+/* FEATURED */
+
+.featured-badge {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 18px;
+
+    padding:
+        8px 10px;
+
+    background:
+        var(--guide-orange);
+
+    color: white;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    z-index: 3;
+}
+
+
+/* LOCATION */
+
+.guide-location {
+
+    position: absolute;
+
+    left: 20px;
+
+    bottom: 18px;
+
+    z-index: 3;
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+.guide-location span {
+
+    margin-right: 5px;
+
+    color: var(--guide-orange);
+}
+
+
+/* =====================================================
+   CARD CONTENT
+===================================================== */
+
+.guide-card-content {
+
+    padding:
+        25px;
+}
+
+
+.guide-heading {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+.guide-heading h3 {
+
+    margin: 0;
+
+    color: var(--guide-green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 27px;
+
+    font-weight: 400;
+}
+
+
+.guide-heading > div:first-child > span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--guide-muted);
+
+    font-size: 9px;
+}
+
+
+.guide-number {
+
+    color:
+        #c5ccc8;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+}
+
+
+/* =====================================================
+   GUIDE DETAILS
+===================================================== */
+
+.guide-details {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin:
+        22px 0;
+
+    padding:
+        17px 0;
+
+    border-top:
+        1px solid var(--guide-border);
+
+    border-bottom:
+        1px solid var(--guide-border);
+}
+
+
+.guide-detail {
+
+    display: flex;
+
+    gap: 9px;
+
+    align-items: center;
+}
+
+
+.detail-icon {
+
+    width: 27px;
+
+    height: 27px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        #edf3ef;
+
+    color:
+        var(--guide-orange);
+
+    font-size: 9px;
+
+    font-weight: 800;
+}
+
+
+.guide-detail small {
+
+    display: block;
+
+    color: #9aa49f;
+
+    font-size: 6px;
+
+    letter-spacing: 1px;
+}
+
+
+.guide-detail strong {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--guide-green);
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.guide-description {
+
+    min-height: 52px;
+
+    margin:
+        0 0 20px;
+
+    color: var(--guide-muted);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   VEHICLE PREVIEW
+===================================================== */
+
+.vehicle-preview {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+    padding: 9px;
+
+    background:
+        #f2f4f1;
+}
+
+
+.vehicle-preview img {
+
+    width: 65px;
+
+    height: 48px;
+
+    object-fit: cover;
+}
+
+
+.vehicle-preview small {
+
+    display: block;
+
+    color: var(--guide-orange);
+
+    font-size: 6px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.vehicle-preview strong {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--guide-green);
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   GUIDE BUTTON
+===================================================== */
+
+.guide-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding:
+        14px 16px;
+
+    border:
+        1px solid var(--guide-green);
+
+    color: var(--guide-green);
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    transition:
+        all 0.25s ease;
+}
+
+
+.guide-button strong {
+
+    color: var(--guide-orange);
+
+    font-size: 16px;
+
+    font-weight: 400;
+}
+
+
+.guide-button:hover {
+
+    background:
+        var(--guide-green);
+
+    color: white;
+}
+
+
+.guide-button:hover strong {
+
+    color:
+        var(--guide-orange);
+}
+
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.guides-empty {
+
+    padding:
+        80px 30px;
+
+    text-align: center;
+
+    background: white;
+
+    border:
+        1px solid var(--guide-border);
+}
+
+
+.empty-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--guide-green);
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+}
+
+
+.guides-empty h3 {
+
+    margin:
+        20px 0 8px;
+
+    color: var(--guide-green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 28px;
+
+    font-weight: 400;
+}
+
+
+.guides-empty p {
+
+    color: var(--guide-muted);
+
+    font-size: 11px;
+}
+
+
+.guides-empty a {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    color: var(--guide-orange);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.guides-cta {
+
+    padding:
+        75px 25px;
+
+    background:
+        var(--guide-green);
+
+    color: white;
+}
+
+
+.guides-cta-inner {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+
+.guides-cta h2 {
+
+    max-width: 650px;
+
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(32px, 4vw, 50px);
+
+    font-weight: 400;
+
+    line-height: 1.1;
+}
+
+
+.cta-button {
+
+    flex-shrink: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding:
+        17px 22px;
+
+    background:
+        var(--guide-orange);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    transition: 0.25s ease;
+}
+
+
+.cta-button:hover {
+
+    background:
+        var(--guide-orange-dark);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.cta-button span {
+
+    font-size: 17px;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .guides-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .guides-hero-inner {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero-side {
+
+        max-width: 300px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .guides-hero {
+
+        padding:
+            60px 22px;
+    }
+
+
+    .guides-hero h1 {
+
+        font-size: 45px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .hero-actions {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+    }
+
+
+    .guides-intro {
+
+        padding:
+            60px 20px;
+    }
+
+
+    .guides-intro .section-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .intro-content h2 {
+
+        font-size: 36px;
+    }
+
+
+    .guides-section {
+
+        padding:
+            60px 15px 80px;
+    }
+
+
+    .section-header {
+
+        display: block;
+    }
+
+
+    .section-header h2 {
+
+        font-size: 32px;
+    }
+
+
+    .section-header > p {
+
+        margin-top: 15px;
+    }
+
+
+    .guides-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+
+    .guide-image {
+
+        height: 390px;
+    }
+
+
+    .guides-cta {
+
+        padding:
+            60px 20px;
+    }
+
+
+    .guides-cta-inner {
+
+        display: block;
+    }
+
+
+    .cta-button {
+
+        margin-top: 25px;
+    }
+
+}

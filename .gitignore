@@ -19,7 +19,7 @@ db.sqlite3
 
 # Django static files
 staticfiles/
-static/
+# static/  (source static files are tracked under website/static/)
 
 # Media/uploads
 media/

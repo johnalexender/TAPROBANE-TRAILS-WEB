@@ -1,0 +1,1428 @@
+/* =====================================================
+   EXPLORE LANKA
+   PRIVATE JOURNEY PLANNER
+===================================================== */
+
+:root {
+
+    --green: #09251f;
+    --green-dark: #061b17;
+    --green-soft: #12352c;
+
+    --orange: #f28a32;
+    --orange-dark: #df7620;
+
+    --cream: #f7f5ef;
+    --white: #ffffff;
+
+    --text: #17332c;
+    --muted: #6d7c76;
+
+    --border: #dfe5e1;
+
+    --light-green: #edf3ef;
+
+    --shadow:
+        0 20px 60px rgba(9, 37, 31, 0.10);
+
+    --radius: 4px;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.planner-page {
+
+    min-height: 100vh;
+
+    background: var(--cream);
+
+    color: var(--text);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.planner-hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 75px 35px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            100deg,
+            #061b17 0%,
+            #09251f 70%,
+            #0e3028 100%
+        );
+}
+
+
+.planner-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+
+    height: 420px;
+
+    border: 1px solid
+        rgba(242, 138, 50, 0.18);
+
+    border-radius: 50%;
+
+    right: -170px;
+
+    top: -190px;
+}
+
+
+.planner-hero-inner {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.eyebrow {
+
+    display: block;
+
+    color: var(--orange);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    margin-bottom: 20px;
+}
+
+
+.planner-hero h1 {
+
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(44px, 6vw, 68px);
+
+    line-height: 1.03;
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+}
+
+
+.planner-hero h1 span {
+
+    color: var(--orange);
+}
+
+
+.planner-hero p {
+
+    max-width: 620px;
+
+    margin: 25px 0 0;
+
+    color:
+        rgba(255,255,255,0.68);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+.hero-trust {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    margin-top: 30px;
+}
+
+
+.hero-trust div {
+
+    display: flex;
+
+    gap: 8px;
+
+    align-items: center;
+
+    color:
+        rgba(255,255,255,0.82);
+
+    font-size: 12px;
+}
+
+
+.hero-trust span {
+
+    color: var(--orange);
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   PLANNER SECTION
+===================================================== */
+
+.planner-section {
+
+    padding: 70px 25px 100px;
+}
+
+
+.planner-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.6fr)
+        minmax(320px, 0.75fr);
+
+    gap: 45px;
+
+    align-items: start;
+}
+
+
+/* =====================================================
+   FORM WRAPPER
+===================================================== */
+
+.planner-form-wrapper {
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+}
+
+
+.form-header {
+
+    padding: 35px 40px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+}
+
+
+.small-label {
+
+    display: block;
+
+    color: var(--orange);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 9px;
+}
+
+
+.form-header h2 {
+
+    margin: 0;
+
+    color: var(--green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+}
+
+
+.required-text {
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   STEP
+===================================================== */
+
+.planner-step {
+
+    display: grid;
+
+    grid-template-columns: 60px 1fr;
+
+    gap: 10px;
+
+    padding: 40px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.step-number {
+
+    color: var(--orange);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 17px;
+}
+
+
+.step-label {
+
+    display: block;
+
+    color: var(--green);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+
+.step-content h3 {
+
+    margin: 0;
+
+    color: var(--green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 26px;
+
+    font-weight: 400;
+}
+
+
+.step-description {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    margin:
+        8px 0 25px;
+}
+
+
+/* =====================================================
+   VEHICLE
+===================================================== */
+
+.vehicle-options {
+
+    margin-top: 25px;
+}
+
+
+.vehicle-card {
+
+    display: block;
+
+    cursor: pointer;
+}
+
+
+.vehicle-card input {
+
+    display: none;
+}
+
+
+.vehicle-card-inner {
+
+    overflow: hidden;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.vehicle-card:hover
+.vehicle-card-inner {
+
+    border-color: var(--orange);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(9,37,31,0.10);
+}
+
+
+.vehicle-card input:checked
++
+.vehicle-card-inner {
+
+    border:
+        2px solid var(--orange);
+
+    background: #fffaf5;
+
+    box-shadow:
+        0 15px 35px
+        rgba(9,37,31,0.10);
+}
+
+
+/* IMAGE */
+
+.vehicle-image {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 280px;
+
+    overflow: hidden;
+
+    background: #dfe5e1;
+}
+
+
+.vehicle-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease;
+}
+
+
+.vehicle-card:hover
+.vehicle-image img {
+
+    transform: scale(1.035);
+}
+
+
+.vehicle-image-overlay {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 120px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(6,27,23,0.75)
+        );
+}
+
+
+.vehicle-photo-label {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    left: 22px;
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    z-index: 2;
+}
+
+
+/* CHECK */
+
+.vehicle-check {
+
+    position: absolute;
+
+    top: 18px;
+
+    right: 18px;
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,0.9);
+
+    color: #87948f;
+
+    font-size: 14px;
+
+    z-index: 5;
+}
+
+
+.vehicle-card input:checked
++
+.vehicle-card-inner
+.vehicle-check {
+
+    background: var(--orange);
+
+    color: white;
+}
+
+
+/* VEHICLE INFO */
+
+.vehicle-info {
+
+    padding: 23px 25px 26px;
+}
+
+
+.vehicle-info strong {
+
+    display: block;
+
+    color: var(--green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 24px;
+
+    font-weight: 400;
+}
+
+
+.vehicle-info > div > span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 5px;
+}
+
+
+.vehicle-info p {
+
+    max-width: 650px;
+
+    margin:
+        15px 0 18px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.vehicle-features {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.vehicle-features span {
+
+    padding: 8px 10px;
+
+    background: var(--light-green);
+
+    color: var(--green);
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+    margin-top: 25px;
+}
+
+
+.input-group {
+
+    margin-top: 20px;
+}
+
+
+.form-grid .input-group {
+
+    margin-top: 0;
+}
+
+
+.input-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--green);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+.input-group label span {
+
+    color: var(--orange);
+}
+
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+
+    box-sizing: border-box;
+
+    width: 100%;
+
+    border:
+        1px solid var(--border);
+
+    background: #fbfcfb;
+
+    color: var(--green);
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    outline: none;
+
+    border-radius: 3px;
+
+    transition: 0.2s ease;
+}
+
+
+.input-group input,
+.input-group select {
+
+    height: 50px;
+
+    padding: 0 15px;
+}
+
+
+.input-group textarea {
+
+    min-height: 95px;
+
+    padding: 14px 15px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+
+    color: #9ba7a3;
+}
+
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+
+    border-color: var(--orange);
+
+    background: white;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(242,138,50,0.08);
+}
+
+
+/* SELECT */
+
+.select-wrapper {
+
+    position: relative;
+}
+
+
+.select-wrapper select {
+
+    appearance: none;
+
+    padding-right: 40px;
+}
+
+
+.select-arrow {
+
+    position: absolute;
+
+    right: 16px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color: var(--orange);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   LOCATION NOTE
+===================================================== */
+
+.location-note {
+
+    display: flex;
+
+    gap: 12px;
+
+    align-items: flex-start;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background: var(--light-green);
+}
+
+
+.location-note > span {
+
+    color: var(--orange);
+
+    font-size: 14px;
+}
+
+
+.location-note p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   SUBMIT
+===================================================== */
+
+.submit-area {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 30px 40px;
+}
+
+
+.submit-info {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    max-width: 430px;
+}
+
+
+.submit-info > span {
+
+    color: var(--orange);
+
+    font-weight: bold;
+}
+
+
+.submit-info p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+
+.submit-button {
+
+    min-width: 205px;
+
+    padding: 17px 25px;
+
+    border: none;
+
+    background: var(--orange);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.submit-button:hover {
+
+    background: var(--orange-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(242,138,50,0.25);
+}
+
+
+.submit-button b {
+
+    font-size: 18px;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   RIGHT SUMMARY
+===================================================== */
+
+.trip-summary {
+
+    position: sticky;
+
+    top: 25px;
+    
+}
+
+
+.summary-top {
+
+    padding: 35px;
+
+    background: var(--green);
+
+    color: white;
+}
+
+
+.summary-top h2 {
+
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 32px;
+
+    font-weight: 400;
+
+    line-height: 1.15;
+}
+
+
+.summary-top p {
+
+    margin:
+        18px 0 0;
+
+    color:
+        rgba(255,255,255,0.65);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   SUMMARY CARD
+===================================================== */
+
+.summary-card {
+
+    padding: 25px;
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-top: none;
+}
+
+
+.summary-card-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+
+.summary-card-header > span {
+
+    color: var(--green);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.summary-card-header > div {
+
+    padding: 6px 9px;
+
+    background: var(--light-green);
+
+    color: #71817b;
+
+    font-size: 8px;
+}
+
+
+.summary-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.summary-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--light-green);
+
+    font-size: 15px;
+}
+
+
+.summary-item div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.summary-item small,
+.summary-row small {
+
+    color: #89958f;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+.summary-item strong,
+.summary-row strong {
+
+    color: var(--green);
+
+    font-size: 11px;
+}
+
+
+.summary-divider {
+
+    height: 1px;
+
+    margin: 19px 0;
+
+    background: var(--border);
+}
+
+
+.summary-row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+.summary-row div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+/* =====================================================
+   BENEFITS
+===================================================== */
+
+.summary-benefits {
+
+    padding:
+        30px 0 10px;
+}
+
+
+.summary-benefits h3 {
+
+    margin:
+        0 0 22px;
+
+    color: var(--green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 21px;
+
+    font-weight: 400;
+}
+
+
+.benefit {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+
+.benefit > span {
+
+    width: 23px;
+
+    height: 23px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--orange);
+
+    color: white;
+
+    font-size: 10px;
+}
+
+
+.benefit strong {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--green);
+
+    font-size: 11px;
+}
+
+
+.benefit p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   QUICK CONTACT
+===================================================== */
+
+.quick-contact {
+
+    margin-top: 20px;
+
+    padding: 27px;
+
+    background: #eeeae1;
+}
+
+
+.quick-contact h3 {
+
+    margin: 0;
+
+    color: var(--green);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 21px;
+
+    font-weight: 400;
+}
+
+
+.quick-contact p {
+
+    margin:
+        12px 0 18px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+
+.quick-contact a {
+
+    color: var(--green);
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    border-bottom:
+        1px solid var(--orange);
+
+    padding-bottom: 4px;
+}
+
+
+.quick-contact a span {
+
+    margin-left: 7px;
+
+    color: var(--orange);
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .planner-container {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .trip-summary {
+
+        position: relative;
+
+        top: auto;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .planner-hero {
+
+        padding:
+            55px 22px;
+    }
+
+
+    .planner-hero h1 {
+
+        font-size: 42px;
+    }
+
+
+    .hero-trust {
+
+        flex-direction: column;
+
+        gap: 13px;
+    }
+
+
+    .planner-section {
+
+        padding:
+            30px 12px 60px;
+    }
+
+
+    .form-header {
+
+        padding: 25px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+
+    .form-header h2 {
+
+        font-size: 28px;
+    }
+
+
+    .planner-step {
+
+        grid-template-columns:
+            40px 1fr;
+
+        padding:
+            30px 20px;
+    }
+
+
+    .step-content h3 {
+
+        font-size: 22px;
+    }
+
+
+    .vehicle-image {
+
+        height: 210px;
+    }
+
+
+    .vehicle-info {
+
+        padding: 20px;
+    }
+
+
+    .vehicle-features {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .submit-area {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding:
+            25px 20px;
+    }
+
+
+    .submit-button {
+
+        width: 100%;
+    }
+
+
+    .summary-top {
+
+        padding: 30px 25px;
+    }
+
+
+    .summary-card {
+
+        padding: 22px;
+    }
+
+}
